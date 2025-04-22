@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -69,5 +70,10 @@ public class ClienteService {
     public void deletar(Long id) {
         Cliente cliente = buscarPorId(id);
         clienteRepository.delete(cliente);
+    }
+
+    public List<ClienteDTO> buscarTodos() {
+        // Mock implementation, replace with actual logic to fetch all clients
+        return List.of(new ClienteDTO()).stream().collect(Collectors.toList());
     }
 }

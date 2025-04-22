@@ -38,15 +38,15 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryQuery {
 	private Predicate[] criarRestricoes(UsuarioFilter usuarioFilter, CriteriaBuilder builder, Root<Usuario> root) {
 		List<Predicate> predicates = new ArrayList<>();
 		
-		if(!StringUtils.isEmpty(usuarioFilter.getNome())) {
+		if(StringUtils.hasText(usuarioFilter.getNome())) {
 			predicates.add(builder.like(
 					builder.lower(root.get("nome")), "%" + usuarioFilter.getNome().toLowerCase() + "%"));
 		}
-		if(!StringUtils.isEmpty(usuarioFilter.getEmail())) {
+		if(StringUtils.hasText(usuarioFilter.getEmail())) {
 			predicates.add(builder.like(
 					builder.lower(root.get("email")), "%" + usuarioFilter.getEmail().toLowerCase() + "%"));
 		}
-		if(!StringUtils.isEmpty(usuarioFilter.getTelefone())) {
+		if(StringUtils.hasText(usuarioFilter.getTelefone())) {
 			predicates.add(builder.like(
 					builder.lower(root.get("telefone")), "%" + usuarioFilter.getTelefone().toLowerCase() + "%"));
 		}

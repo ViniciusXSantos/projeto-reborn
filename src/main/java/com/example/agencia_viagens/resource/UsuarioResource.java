@@ -46,12 +46,11 @@ public class UsuarioResource {
 	*/
 	
 	@GetMapping
-    public List<Usuario> listarOuPesquisar(UsuarioFilter usuarioFilter) {
-        //return (usuarioFilter != null && possuiFiltro(usuarioFilter))
-                //? usuarioRepository.filtrar(usuarioFilter)
-               // : usuarioRepository.findAll();
-		return  null;
-    }
+	public List<Usuario> listarOuPesquisar(UsuarioFilter usuarioFilter) {
+		return (usuarioFilter != null && possuiFiltro(usuarioFilter))
+				? usuarioRepository.filtrar(usuarioFilter)
+				: usuarioRepository.findAll();
+	}
 
     private boolean possuiFiltro(UsuarioFilter filter) {
         return StringUtils.isNotBlank(filter.getNome()) ||

@@ -3,18 +3,36 @@ package com.example.agencia_viagens.controller;
 import com.example.agencia_viagens.dto.ClienteDTO;
 import com.example.agencia_viagens.model.Cliente;
 import com.example.agencia_viagens.service.ClienteService;
-import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
-@RequiredArgsConstructor
+@Controller
 public class ClienteController {
 
-    private final ClienteService clienteService;
+    @Autowired
+    private ClienteService clienteService;
+
+    // Página de listagem de clientes
+    @GetMapping("/clientes")
+    public String listarClientes(Model model) {
+        List<ClienteDTO> clientes = clienteService.buscarTodos();
+        model.addAttribute("clientes", clientes);
+        return "exibicao-usuario-cliente.jte";
+    }
+
+    // Página de cadastro de cliente
+    @GetMapping("/clientes/novo")
+    public String novoCliente() {
+        return "cadastro-usuario-cliente.jte";
+    }
 
     @PostMapping
     public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteDTO dto) {
