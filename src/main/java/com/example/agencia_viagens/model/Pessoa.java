@@ -2,6 +2,7 @@ package com.example.agencia_viagens.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -16,11 +17,13 @@ public abstract class Pessoa {
 
     @NotNull
     @Size(min = 3, max = 255)
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @NotNull
-    @Column(name = "email", unique = true)
+    @Email(message = "E-mail inválido")
+    @Size(max = 255)
+    @Column(name = "email", nullable = false)
     private String email;
 
     public Pessoa(String nome, String email) {
@@ -32,6 +35,9 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return String.format("Nome: %s, Email: %s", nome, email);
+        return getClass().getSimpleName() + "{" +
+               "nome='" + nome + '\'' +
+               ", email='" + email + '\'' +
+               '}';
     }
 }

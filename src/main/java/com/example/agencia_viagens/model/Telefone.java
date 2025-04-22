@@ -1,34 +1,64 @@
 package com.example.agencia_viagens.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import jakarta.validation.constraints.Pattern;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Entity
-@Table(name = "telefones")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@Entity
+@Table(name = "telefone")
+@ToString(exclude = {"usuario", "cliente"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Telefone {
+
+    public enum TipoTelefone {
+        CELULAR, RESIDENCIAL, COMERCIAL, WHATSAPP
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_telefone", nullable = false)
-    private Long idTelefone;
+    @Column(name = "id_telefone")
+    @EqualsAndHashCode.Include
+    private Long id;
 
     @NotNull
-    @Column(name = "numero", nullable = false)
+    @Pattern(regexp = "^\\(?(\\d{2})\\)?[\\s-]?(\\d{4,5})[\\s-]?(\\d{4})$", 
+             message = "Formato inválido. Use (XX)XXXX-XXXX ou (XX)XXXXX-XXXX")
+    @Column(nullable = false)
     private String numero;
 
     @NotNull
-    @Column(name = "tipo", nullable = false) // Exemplo: celular, WhatsApp, Telegram
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoTelefone tipo;
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+
+    public Telefone(String numero, TipoTelefone tipo, Usuario usuario) {
+        this.numero = numero;
+        this.tipo = tipo;
+        this.usuario = usuario;
+    }
+
+    public Telefone(String numero, TipoTelefone tipo, Cliente cliente) {
+        this.numero = numero;
+        this.tipo = tipo;
+        this.cliente = cliente;
+    }
 }
