@@ -4,41 +4,35 @@ import com.example.agencia_viagens.dto.HospedagemDTO;
 import com.example.agencia_viagens.service.HospedagemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/hospedagens")
+@Controller
+@RequestMapping("/hospedagens")
 @RequiredArgsConstructor
 public class HospedagemController {
 
     private final HospedagemService hospedagemService;
 
-    @PostMapping
-    public ResponseEntity<HospedagemDTO> criar(@Valid @RequestBody HospedagemDTO dto) {
-        return ResponseEntity.ok(hospedagemService.salvar(dto));
+    @GetMapping("/cadastro")
+    public String exibirFormularioCadastro(Model model) {
+        model.addAttribute("hospedagem", new HospedagemDTO());
+        return "forms-hospedagem";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<HospedagemDTO> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(hospedagemService.buscarPorId(id));
+    @PostMapping("/cadastro")
+    public String cadastrarHospedagem(@Valid @ModelAttribute HospedagemDTO hospedagemDTO) {
+        hospedagemService.salvar(hospedagemDTO);
+        return "redirect:/hospedagens";
     }
 
     @GetMapping
-    public ResponseEntity<List<HospedagemDTO>> listarTodos() {
-        return ResponseEntity.ok(hospedagemService.listarTodos());
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<HospedagemDTO> atualizar(@PathVariable Long id, @Valid @RequestBody HospedagemDTO dto) {
-        return ResponseEntity.ok(hospedagemService.atualizar(id, dto));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        hospedagemService.deletar(id);
-        return ResponseEntity.noContent().build();
+    public String listarHospedagens(Model model) {
+        List<HospedagemDTO> hospedagens = hospedagemService.listarTodos();
+        model.addAttribute("hospedagens", hospedagens);
+        return "exibicao-hospedagem";
     }
 }

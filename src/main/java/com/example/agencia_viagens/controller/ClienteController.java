@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @RequestMapping("/clientes")
 @Controller
 public class ClienteController {
@@ -21,28 +20,23 @@ public class ClienteController {
     private ClienteService clienteService;
 
     // Página de listagem de clientes
-    @GetMapping("/clientes")
+    @GetMapping()
     public String listarClientes(Model model) {
         List<ClienteDTO> clientes = clienteService.buscarTodos();
         model.addAttribute("clientes", clientes);
-        return "exibicao-usuario-cliente.jte";
+        return "exibicao-usuario-cliente";
     }
 
     // Página de cadastro de cliente
     @GetMapping("/clientes/novo")
     public String novoCliente() {
-        return "cadastro-usuario-cliente.jte";
+        return "cadastro-usuario-cliente";
     }
 
     @PostMapping
     public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteDTO dto) {
         Cliente cliente = clienteService.salvar(dto);
         return ResponseEntity.ok(cliente);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Cliente>> listarClientes() {
-        return ResponseEntity.ok(clienteService.listarTodos());
     }
 
     @GetMapping("/{id}")

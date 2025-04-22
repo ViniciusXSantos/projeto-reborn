@@ -24,19 +24,19 @@ public class HospedagemService {
 
         hospedagem = hospedagemRepository.save(hospedagem);
 
-        return new HospedagemDTO(hospedagem.getIdHospedagem(), hospedagem.getNome(), hospedagem.getEmail(), hospedagem.getEndereco());
+        return new HospedagemDTO(hospedagem.getIdHospedagem(), hospedagem.getNome(), hospedagem.getEmail(), hospedagem.getEndereco(), null);
     }
 
     public HospedagemDTO buscarPorId(Long id) {
         Hospedagem hospedagem = hospedagemRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Hospedagem não encontrada"));
 
-        return new HospedagemDTO(hospedagem.getIdHospedagem(), hospedagem.getNome(), hospedagem.getEmail(), hospedagem.getEndereco());
+        return new HospedagemDTO(hospedagem.getIdHospedagem(), hospedagem.getNome(), hospedagem.getEmail(), hospedagem.getEndereco(), null);
     }
 
     public List<HospedagemDTO> listarTodos() {
         return hospedagemRepository.findAll().stream()
-                .map(h -> new HospedagemDTO(h.getIdHospedagem(), h.getNome(), h.getEmail(), h.getEndereco()))
+                .map(h -> new HospedagemDTO(h.getIdHospedagem(), h.getNome(), h.getEmail(), h.getEndereco(), h.obterDescricao()))
                 .collect(Collectors.toList());
     }
 
@@ -50,7 +50,7 @@ public class HospedagemService {
 
         hospedagem = hospedagemRepository.save(hospedagem);
 
-        return new HospedagemDTO(hospedagem.getIdHospedagem(), hospedagem.getNome(), hospedagem.getEmail(), hospedagem.getEndereco());
+        return new HospedagemDTO(hospedagem.getIdHospedagem(), hospedagem.getNome(), hospedagem.getEmail(), hospedagem.getEndereco(), null);
     }
 
     public void deletar(Long id) {

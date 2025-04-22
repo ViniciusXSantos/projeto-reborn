@@ -19,6 +19,11 @@ public record HospedagemDTO(
     String email,
 
     @NotNull
-    Endereco endereco
+    Endereco endereco,
 
-) {}
+    String descricao // Campo adicional para exibição
+) {
+
+    public HospedagemDTO() {
+        this(null, null, null, null, null);
+    }}

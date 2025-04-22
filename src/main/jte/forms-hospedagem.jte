@@ -12,8 +12,7 @@
         </div>
 
         <!-- Campos do Formulário -->
-        <form action="" method="post" class="campos-formulario">
-            <fieldset>
+        <form action="/hospedagens/cadastro" method="post" class="campos-formulario">
                 <legend>Dados da Hospedagem</legend>
                 <div class="caixa lado-a-lado">
                     <div class="caixa-input"><input type="text" placeholder="Nome" class="input-sem-ponta"
