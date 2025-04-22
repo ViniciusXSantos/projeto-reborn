@@ -8,7 +8,7 @@
                 onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
         </div>
     </form>
-    <button class="add-butao">+</button>
+    <a href="/clientes/novo"><button class="add-butao">+</button></a>
 </section>
 
 <!-- Cards dos Funcionários -->

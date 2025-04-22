@@ -1,5 +1,8 @@
+@import com.example.agencia_viagens.dto.UsuarioDTO
+
+@param UsuarioDTO user =  new UsuarioDTO()
 @template.layout.main(content = @`
-<!--<style>
+<style>
             .caixa-conteudo {
                 display: flex;
                 width: 80%;
@@ -56,7 +59,7 @@
             .then(retorno => console.log(retorno))  // Exibindo os produtos
   
         </script>
-    </head>-->
+    </head>
 
 <section class="formulario-container">
     <!-- Área para Foto Expandida -->
@@ -65,42 +68,19 @@
             <span>+</span>
         </div>
 
-        <form action="" method="post" id="usuario-formulario" class="campos-formulario lado-a-lado">
+        <form action="/user/save" method="post" id="usuario-formulario" class="campos-formulario lado-a-lado">
 
             <fieldset>
                 <legend>Dados Pessoais</legend>
 
                 <div class="caixa lado-a-lado">
-                    <div class="caixa-input"><input type="text" placeholder="Nome *" id="nome" class="input-sem-ponta"
-                            required></div>
-                    <div class="caixa-input"><input type="email" placeholder="E-mail *" id="email"
-                            class="input-sem-ponta" required></div>
-                </div>
+                    <div class="caixa-input"><input type="text" placeholder="Nome *" id="nome" name="nome" class="input-sem-ponta"
+                           value="${user.getId()}" required></div>
+                    <div class="caixa-input"><input type="email" placeholder="E-mail *" id="email" name="email"
+                           value="${user.getEmail()}" class="input-sem-ponta" required></div>
 
-                <div class="caixa lado-a-lado">
-                    <div class="caixa-input">
-                        <div class="lado-mesclado">
-                            <input type="tel" placeholder="Telefone *" id="telefone1" class="telefone" required>
-                            <select name="tipo_contato1" id="telefone-selecao1" class="telefone-selecao" required>
-                                <option value="" disabled selected>Selecione...</option>
-                                <option value="telefone">Phone</option>
-                                <option value="telegram">Telegram</option>
-                                <option value="whatsapp">WhatsApp</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="caixa-input">
-                        <div class="lado-mesclado">
-                            <input type="tel" placeholder="Telefone" id="telefone2" class="telefone">
-                            <select name="tipo_contato2" id="telefone-selecao2" class="telefone-selecao">
-                                <option value="" disabled selected>Selecione...</option>
-                                <option value="telefone">Phone</option>
-                                <option value="telegram">Telegram</option>
-                                <option value="whatsapp">WhatsApp</option>
-                            </select>
-                        </div>
-                    </div>
+                    <div class="caixa-input"><input type="password" placeholder="Senha *" id="senha" name="senha"
+                           value="${user.getSenha()}" class="input-sem-ponta" required></div>
                 </div>
 
             </fieldset>
@@ -120,5 +100,4 @@
     });
 </script>
 
-<script src="../js/form/cadastro-usuario.js"></script>
 `)

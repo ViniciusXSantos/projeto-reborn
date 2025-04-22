@@ -2,33 +2,36 @@ package com.example.agencia_viagens.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
-import java.util.List;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "usuarios")
-public class Usuario extends Pessoa {
+@Table(name = "usuario")
+public class Usuario {
 
-    @Getter
+   
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario", nullable = false)
-    private Long idUsuario;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
 
-    @Column(name = "ativo", nullable = false)
-    private Boolean ativo;
+    @Column(nullable = false)
+    private String nome;
 
-    @OneToMany(mappedBy = "usuario", cascade=CascadeType.ALL, orphanRemoval = true)
-    private List<Telefone> telefones;
+    @Column(unique = true, nullable = true)
+    private String email;
 
-    @Override
-    public String obterDescricao() {
-        return String.format("ID: %d, Usuário: %s, Email: %s, Ativo: %s",
-                this.getIdUsuario(), super.getNome(), super.getEmail(), this.getAtivo() ? "Ativo" : "Inativo");
+    @Column(nullable = false)
+    private String senha;
+
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
     }
 
+    public Usuario() {
+    }
+
+    
+ 
 }

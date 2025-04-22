@@ -28,30 +28,10 @@ public class ClienteController {
     }
 
     // Página de cadastro de cliente
-    @GetMapping("/clientes/novo")
+    @GetMapping("/novo")
     public String novoCliente() {
-        return "cadastro-usuario-cliente";
+        return "cadastro-usuarios-cliente";
     }
 
-    @PostMapping
-    public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteDTO dto) {
-        Cliente cliente = clienteService.salvar(dto);
-        return ResponseEntity.ok(cliente);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(clienteService.buscarPorId(id));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody ClienteDTO dto) {
-        return ResponseEntity.ok(clienteService.atualizar(id, dto));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        clienteService.deletar(id);
-        return ResponseEntity.noContent().build();
-    }
+  
 }

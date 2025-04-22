@@ -24,7 +24,6 @@ public class Endereco {
     @EqualsAndHashCode.Include
     private Long idEndereco;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
