@@ -1,0 +1,216 @@
+/* Estilos da Barra de Pesquisa e Botão Adicionar */
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 2rem auto; /* Centraliza a barra de pesquisa na página */
+    padding: 5rem 0; /* Aumenta o espaço entre a barra de pesquisa e o header */
+}
+
+.search-section form {
+    display: flex;
+    align-items: center;
+    width: 90%; /* Ajusta a largura da barra de pesquisa */
+    margin-right: 1rem; /* Adiciona espaço entre a barra de pesquisa e o botão + */
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--cor-terciaria);
+    border-radius: 20px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.search-input-wrapper input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.add-button {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease; /* Adiciona transição suave */
+}
+
+.add-button:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+.botao-editar,
+.botao-deletar,
+.botao-ativo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha os ícones e texto à esquerda */
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adiciona transição suave */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.botao-editar img,
+.botao-deletar img,
+.botao-ativo img {
+    width: 1rem; /* Ajusta o tamanho das imagens */
+    height: 1rem;
+}
+
+.botao-editar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    flex: 1;
+}
+
+.botao-editar:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+.botao-deletar {
+    background-color: var(--cor-primaria); /* Cor primária por padrão */
+    color: var(--cor-terciaria);
+    flex: 1;
+}
+
+.botao-deletar:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+.botao-ativo {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    flex: 1;
+}
+
+.botao-ativo.ativo {
+    background-color: var(--cor-primaria);
+}
+
+.botao-ativo.inativo {
+    background-color: var(--cor-quaternaria);
+    color: var(--cor-terciaria);
+}
+
+/* Estilos dos Cards */
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem; /* Adiciona espaço entre a barra de pesquisa e os cards */
+}
+
+.card {
+    background-color: var(--cor-terciaria);
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 18rem;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+    margin-bottom: 1rem;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card .botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.card .botoes button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adiciona transição suave */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.card .botoes button img {
+    width: 1rem; /* Ajusta o tamanho das imagens */
+    height: 1rem;
+}
+
+/* Responsividade dos Cards */
+@media (max-width: 768px) {
+    .cards-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-section {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding: 5rem 0; /* Ajusta o padding para dispositivos menores */
+    }
+
+    .search-section form {
+        width: 100%;
+        margin-right: 0; /* Remove a margem direita para dispositivos menores */
+    }
+
+    .search-input-wrapper {
+        width: 100%;
+    }
+
+    .search-icon {
+        margin-bottom: 0.5rem; /* Ajusta o ícone para ficar acima do input em telas menores */
+    }
+
+    .search-input-wrapper input[type="text"] {
+        border-radius: 20px; /* Mais arredondado */
+    }
+
+    .add-button {
+        margin-top: 1rem;
+    }
+}

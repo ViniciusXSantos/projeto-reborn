@@ -1,0 +1,60 @@
+/* Estilos da Barra de Pesquisa e Botão Adicionar */
+.secao-pesquisa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 2rem auto; /* Centraliza a barra de pesquisa na página */
+}
+
+.secao-pesquisa form {
+    display: flex;
+    align-items: center;
+    width: 90%; /* Ajusta a largura da barra de pesquisa */
+    margin-right: 1rem; /* Adiciona espaço entre a barra de pesquisa e o botão + */
+}
+
+.entrada-pesquisa {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--cor-terciaria);
+    border-radius: 20px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.entrada-pesquisa input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.icone-pesquisa {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.add-butao {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adiciona transição suave */
+}
+
+.add-butao:hover {
+    background-color: var(--cor-quaternaria);
+}

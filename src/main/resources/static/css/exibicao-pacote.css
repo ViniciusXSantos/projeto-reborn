@@ -1,0 +1,44 @@
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem; /* Adiciona espaço entre a barra de pesquisa e os cards */
+}
+
+.botao-editar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    flex: 1;
+}
+
+.botao-editar:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+.botao-deletar {
+    background-color: var(--cor-primaria); /* Cor primária por padrão */
+    color: var(--cor-terciaria);
+    flex: 1;
+}
+
+.botao-deletar:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+.botao-ativo {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    flex: 1;
+}
+
+.botao-ativo.ativo {
+    background-color: var(--cor-primaria);
+}
+
+.botao-ativo.inativo {
+    background-color: var(--cor-quaternaria);
+    color: var(--cor-terciaria);
+}
+

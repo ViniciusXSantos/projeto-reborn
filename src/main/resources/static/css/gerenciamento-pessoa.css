@@ -1,0 +1,99 @@
+.caixa-pesquisa {
+    margin: 20px 0;
+    width: 80%;
+    display: flex;
+}
+
+.barra-pesquisa {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/*
+.add-butao {
+    background: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+*/
+
+.cartoes-usuario {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cartao {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+.cartao-corpo {
+    padding: 15px;
+}
+
+.cartao .foto img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.foto {
+    height: 11em;
+    background: #cfcfcf;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.foto img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.cartao button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cartao .edita {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.cartao .deleta {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.cartao .deleta:hover {
+    background: #c0392b;
+}
+
+.cartao .ativo {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+@media (max-width: 430px) {
+    .cartao {
+        width: 100%;
+    }
+
+    .foto {
+        height: 20em;
+    }
+}

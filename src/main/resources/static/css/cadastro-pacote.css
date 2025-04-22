@@ -1,0 +1,68 @@
+
+/* Formulário */
+.formulario-conteiner {   /*CAIXA LILÁS COM INPUTS */
+    display: block;
+    width: 100%;
+    margin-top: 7.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+}
+
+.caixa-conteudo {
+    display: flex;
+    width: 60%; /*80*/
+    /*flex-wrap: wrap;*/
+    gap: 2em;
+}
+
+/* Upload de Foto */
+.envio-de-foto {
+    margin-top: 7.5vh;  /*7.5vh*/
+    margin-bottom: 7.5vh;
+    width: 40%; /*100%*/
+    height: 35vh; /*35vh*/
+    background: #B4C5FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    color: #555;
+    border-radius: 10px;
+    border: 0.3rem solid #87A2FF;
+    position: relative;
+    text-align: center;
+}
+
+.btn-salvar {
+    width: 10rem; /*15*/
+    padding: 0.7rem; /*1.2rem*/
+    margin-right: 29.5rem; /*posicionar o botao*/
+   
+}
+
+
+.input-file {
+    display: none;
+}
+
+.p{      /*conferir se precisa apagar */
+    width: 5px;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.0vw;
+    color: #555;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}

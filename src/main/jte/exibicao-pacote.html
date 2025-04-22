@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/cadastro.css">
+        <link rel="stylesheet" href="../css/cadastro-pacote.css">
+        <link rel="stylesheet" href="../css/pesquisa.css">
+        <link rel="stylesheet" href="../css/exibicao-pacote.css">
+        <title>Pacotes</title>
+            
+    </head>
+
+    <body>
+        <div class="fundo-conteudo">
+            <!-- Menu Hambúrguer -->
+            <div class="menu-hamburger" id="alterar-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M6 7h12v2H6zm0 4h12v2H6zm0 4h12v2H6z" />
+                </svg>
+            </div>
+            
+            <!-- Barra Lateral -->
+            <aside class="barra-lateral" id="barra-lateral">
+                <div class="logo">
+                    <img src="../assets/backgrounds/logo-innova-tour.png" alt="Innova Turismo">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#"><img src="../assets/icons/icone-das-hospedagens.svg" class="icone"> Hospedagens</a></li>
+                        <li><a href="#"><img src="../assets/icons/icone-dos-pacotes-de-viagens.svg" class="icone"> Pacote</a></li>
+                        <li><a href="#"><img src="../assets/icons/icone-dos-funcionarios.svg" class="icone"> Funcionários</a></li>
+                        <li><a href="#"><img src="../assets/icons/icone-dos-clientes.svg" class="icone"> Clientes</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Conteúdo Principal -->
+            <main class="conteudo">
+                <!-- Cabeçalho -->
+                <header>
+                    <div class="caixa-cabecalho">
+                        <h1>Viagens </h1> <!-- Altere aqui para a sua respectiva tela -->
+                        <div class="info-usuario">
+                            <img src="../assets/icons/icone-avatar.svg" class="avatar" alt="Avatar">
+                            <div class="detalhes-usuario">
+                                <p>Lorem Ipsum Dolo</p>
+                                <small>Admin</small>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!---->
+
+                <!-- ESCREVA SEU CÓDIGO AQUI -->
+                <section class="secao-pesquisa">
+                    <form action="#" method="get" class="formulario-pesquisa">
+                        <div class="entrada-pesquisa">
+                            <img src="../assets/icons/botao-de-pesquisar.svg" alt="Ícone de Pesquisa" class="icone-pesquisa">
+                            <input type="text" placeholder="Pesquise" name="search" onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
+                        </div>
+                    </form>
+                    <button class="add-butao">+</button>
+                </section>                 
+                <!-- Cards das viagens -->
+            <section class="cards-section">
+                <article class="card">
+                    <img src="../assets/backgrounds/.png" alt="Foto da Viagem">
+                    <h2>Viagem</h2>
+                    <p>Descrição</p>
+                   
+                    <div class="img-viagem" >
+
+                    </div>
+
+
+                    <div class="dados-viagem" >
+                        <h2>Data de partida</h2>
+                        <h2>Data de chegada</h2>
+                    </div>
+                                   
+                   
+                    <div class="botoes">  <!--DIV para botões-->
+                        <button class="botao-editar">
+                            <img src="../assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
+                            Editar
+                        </button>
+                        <button class="botao-deletar">
+                            <img src="../assets/icons/botao-deletar.svg" alt="Deletar" class="icone-botao">
+                            Deletar
+                        </button>
+                        <button class="botao-ativo">
+                            <img src="../assets/icons/botao-ativo.svg" alt="Ativo" class="icone-botao">
+                           Habilitar
+                        </button>
+
+                    </div>
+                </article>
+                <!-- Repita a estrutura do card para outros clientes -->
+            </section>
+               
+            </main>
+        </div>
+    </body>
+
+</html>

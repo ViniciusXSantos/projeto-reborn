@@ -1,0 +1,228 @@
+/* Formulário */
+.formulario-conteiner {
+    display: block;
+    width: 80%;
+    margin-top: 7.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+}
+
+/* Upload de Foto */
+.envio-de-foto {
+    margin-bottom: 7.5vh;
+    margin-top: 7.5vh;
+    width: 100%;
+    height: 35vh;
+    background: #B4C5FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    color: #555;
+    border-radius: 10px;
+    border: 0.3rem solid #87A2FF;
+    position: relative;
+    text-align: center;
+}
+
+.input-file {
+    display: none;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    color: #555;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+.file-label span {
+    font-size: 2vw;
+    color: #555;
+}
+
+.file-label p {
+    font-size: 1rem; /* Tamanho da legenda */
+    color: #555;
+    margin-top: 0.5rem; /* Espaçamento entre o símbolo e a legenda */
+}
+
+/* Campos do Formulário */
+.campos-formulario {
+    width: 100%;
+    background: var(--cor-primaria);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.6rem 1.2rem rgba(50, 66, 122, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+fieldset {
+    width: 100%;
+}
+
+legend {
+    color: var(--cor-terciaria);
+    margin-bottom: 1rem;
+}
+
+.caixa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    width: 100%;
+}
+
+.caixa-input {
+    flex-grow: 1;
+    flex-basis: 48%;
+    margin-bottom: 1rem;
+}
+
+.lado-a-lado, .lado-mesclado {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lado-a-lado {
+    gap: 2%;
+}
+
+.telefone {
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+}
+
+.telefone-selecao {
+    border-left: 0.1rem solid #d6d6d6;
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    width: 79%;
+}
+
+/* Estilo dos Inputs */
+.input-sem-ponta {
+    border-radius: 0.8rem;
+}
+
+.caixa input, select {
+    width: 100%;
+    padding: 1.2rem;
+    border: none;
+    font-size: 0.9rem;
+    background-color: var(--cor-secundaria);
+}
+
+option:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+/* Botão de Salvar */
+.btn-salvar {
+    width: 15rem;
+    padding: 1.2rem;
+    background: var(--cor-primaria);
+    color: var(--cor-terciaria);
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    margin: 2rem auto 0;
+}
+
+.btn-salvar:hover {
+    background: var(--cor-quaternaria);
+    transform: scale(1.05);
+}
+
+.btn-salvar:active {
+    background: #0B2C87;
+    transform: scale(0.98);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .formulario-conteiner {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .envio-de-foto {
+        width: 90%;
+        height: 12vh;
+        font-size: 1rem;
+    }
+
+    .campos-formulario {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .caixa {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .caixa-input {
+        flex-basis: 100%;
+    }
+
+    .btn-salvar {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsividade para telas ainda menores */
+@media (max-width: 540px) {
+    .formulario-conteiner {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .envio-de-foto {
+        width: 100%;
+        height: 20vh; /* Ajuste de altura para telas menores */
+        font-size: 1.5rem;
+    }
+
+    .campos-formulario {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .caixa {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .caixa-input {
+        flex-basis: 100%;
+    }
+
+    .btn-salvar {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
