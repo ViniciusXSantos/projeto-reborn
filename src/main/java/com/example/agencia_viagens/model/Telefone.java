@@ -1,6 +1,7 @@
 package com.example.agencia_viagens.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -15,7 +16,7 @@ public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_telefone", nullable = false)
-    private Long id;
+    private Long idTelefone;
 
     @NotNull
     @Column(name = "numero", nullable = false)
@@ -30,9 +31,4 @@ public class Telefone {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
-    public Telefone(String numero, String tipo, Usuario usuario) {
-        this.numero = numero;
-        this.tipo = tipo;
-        this.usuario = usuario;
-    }
 }
