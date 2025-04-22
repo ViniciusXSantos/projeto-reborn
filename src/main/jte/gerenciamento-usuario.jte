@@ -1,5 +1,5 @@
 @template.layout.main(content = @`
-    @template.layout.header()
+    
     <div class="formulario-container">
         <section class="secao-pesquisa">
             <form action="#" method="get" class="formulario-pesquisa">

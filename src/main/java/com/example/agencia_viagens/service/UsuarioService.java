@@ -57,7 +57,7 @@ public class UsuarioService {
         Usuario usuario = buscarUsuarioPeloId(idUsuario);
 
         // Remove telefones antigos
-        telefoneRepository.deleteByUsuario(usuario);
+        //telefoneRepository.deleteByUsuario(usuario);
 
         // Adiciona novos telefones
         for (Telefone telefone : novosTelefones) {

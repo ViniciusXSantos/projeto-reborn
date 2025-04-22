@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/enderecos")
@@ -17,31 +16,19 @@ public class EnderecoController {
 
     private final EnderecoService enderecoService;
 
-    @PostMapping
-    public ResponseEntity<EnderecoDTO> criar(@RequestBody EnderecoDTO dto) {
-        Endereco endereco = enderecoService.salvar(dto);
-        return ResponseEntity.ok(new EnderecoDTO(endereco));
-    }
-
     @GetMapping
-    public ResponseEntity<List<EnderecoDTO>> listarTodos() {
-        List<EnderecoDTO> enderecos = enderecoService.buscarTodos()
-                .stream()
-                .map(EnderecoDTO::new)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(enderecos);
+    public ResponseEntity<List<Endereco>> listarTodos() {
+        return ResponseEntity.ok(enderecoService.listarTodos());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<EnderecoDTO> buscarPorId(@PathVariable Long id) {
-        Endereco endereco = enderecoService.buscarPorId(id);
-        return ResponseEntity.ok(new EnderecoDTO(endereco));
+    @PostMapping("/cliente/{clienteId}")
+    public ResponseEntity<Endereco> salvar(@PathVariable Long clienteId, @RequestBody EnderecoDTO dto) {
+        return ResponseEntity.ok(enderecoService.salvar(clienteId, dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EnderecoDTO> atualizar(@PathVariable Long id, @RequestBody EnderecoDTO dto) {
-        Endereco endereco = enderecoService.atualizar(id, dto);
-        return ResponseEntity.ok(new EnderecoDTO(endereco));
+    public ResponseEntity<Endereco> atualizar(@PathVariable Long id, @RequestBody EnderecoDTO dto) {
+        return ResponseEntity.ok(enderecoService.atualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")

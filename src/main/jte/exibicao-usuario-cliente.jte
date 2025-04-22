@@ -1,0 +1,39 @@
+@template.layout.main(content = @`
+<!-- Barra de Pesquisa e Botão Adicionar -->
+<section class="secao-pesquisa">
+    <form action="#" method="get" class="formulario-pesquisa">
+        <div class="entrada-pesquisa">
+            <img src="/assets/icons/botao-de-pesquisar.svg" alt="Ícone de Pesquisa" class="icone-pesquisa">
+            <input type="text" placeholder="Pesquise" name="search"
+                onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
+        </div>
+    </form>
+    <button class="add-butao">+</button>
+</section>
+
+<!-- Cards dos Funcionários -->
+<section class="cards-section">
+    <article class="card">
+        <img src="/assets/backgrounds/perfil-equipe.png" alt="Foto do Funcionário">
+        <h2>Nome do Cliente</h2>
+        <p>Descrição</p>
+        <div class="botoes">
+            <button class="botao-editar">
+                <img src="/assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
+                Editar
+            </button>
+            <button class="botao-deletar">
+                <img src="/assets/icons/botao-deletar.svg" alt="Deletar" class="icone-botao">
+                Deletar
+            </button>
+        </div>
+    </article>
+    <!-- Repita a estrutura do card para outros clientes -->
+</section>
+<!-- Script para ativar/desativar o menu -->
+<script>
+    document.getElementById("alterar-menu").addEventListener("click", function () {
+        document.getElementById("barra-lateral").classList.toggle("active");
+    });
+</script>
+`)

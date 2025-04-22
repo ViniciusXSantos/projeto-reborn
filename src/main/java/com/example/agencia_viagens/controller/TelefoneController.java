@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/telefones")
@@ -17,31 +16,19 @@ public class TelefoneController {
 
     private final TelefoneService telefoneService;
 
-    @PostMapping
-    public ResponseEntity<TelefoneDTO> criar(@RequestBody TelefoneDTO dto) {
-        Telefone telefone = telefoneService.salvar(dto);
-        return ResponseEntity.ok(new TelefoneDTO(telefone));
-    }
-
     @GetMapping
-    public ResponseEntity<List<TelefoneDTO>> listarTodos() {
-        List<TelefoneDTO> telefones = telefoneService.buscarTodos()
-                .stream()
-                .map(TelefoneDTO::new)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(telefones);
+    public ResponseEntity<List<Telefone>> listarTodos() {
+        return ResponseEntity.ok(telefoneService.listarTodos());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TelefoneDTO> buscarPorId(@PathVariable Long id) {
-        Telefone telefone = telefoneService.buscarPorId(id);
-        return ResponseEntity.ok(new TelefoneDTO(telefone));
+    @PostMapping("/cliente/{clienteId}")
+    public ResponseEntity<Telefone> salvar(@PathVariable Long clienteId, @RequestBody TelefoneDTO dto) {
+        return ResponseEntity.ok(telefoneService.salvar(clienteId, dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TelefoneDTO> atualizar(@PathVariable Long id, @RequestBody TelefoneDTO dto) {
-        Telefone telefone = telefoneService.atualizar(id, dto);
-        return ResponseEntity.ok(new TelefoneDTO(telefone));
+    public ResponseEntity<Telefone> atualizar(@PathVariable Long id, @RequestBody TelefoneDTO dto) {
+        return ResponseEntity.ok(telefoneService.atualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
