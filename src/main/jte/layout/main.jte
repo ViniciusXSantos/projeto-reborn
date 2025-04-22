@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/cadastro.css">
+    <link rel="stylesheet" href="/css/cadastro-hospedagem.css">
+    <link rel="stylesheet" href="/css/cadastro-usuarios-cliente.css">
+    <link rel="stylesheet" href="/css/cadastro-pacote.css">
+    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">
+    <link rel="stylesheet" href="/css/pesquisa.css">
+    <link rel="stylesheet" href="/css/cadastro-hospedagem.css"> 
+    <link rel="stylesheet" href="/css/exibicao-cadastro-cliente.css">
+    <link rel="stylesheet" href="/css/exibicao-hospedagens.css">
+    <link rel="stylesheet" href="/css/exibicao-pacote.css">
+    <script src="/js/telefone-formatacao.js" defer ></script>
+    <script src="/js/alternar-status.js" defer></script>
     <title>#</title>
     <style>
         @media (max-width: 540px) {
@@ -24,36 +35,37 @@
 
 <body>
 
-<div class="fundo-conteudo">
-            <!-- Menu Hambúrguer -->
-            <div class="menu-hamburger" id="alterar-menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M6 7h12v2H6zm0 4h12v2H6zm0 4h12v2H6z" />
-                </svg>
-            </div>
-            
-            <!-- Barra Lateral -->
-            <aside class="barra-lateral" id="barra-lateral">
-                @template.layout.aside()
-            </aside>
-
-            <!-- Conteúdo Principal -->
-            <main class="conteudo">
-                <!-- Cabeçalho -->
-                <header>
-                    @template.layout.header()
-                </header>
-
-                <!-- ESCREVA SEU CÓDIGO AQUI -->
-                ${content}
-            </main>
+    <div class="fundo-conteudo">
+        <!-- Menu Hambúrguer -->
+        <div class="menu-hamburger" id="alterar-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M6 7h12v2H6zm0 4h12v2H6zm0 4h12v2H6z" />
+            </svg>
         </div>
 
-<script>
-    document.getElementById("alterar-menu").addEventListener("click", function() {
-        document.getElementById("barra-lateral").classList.toggle("active");
-    });
-</script>
+        <!-- Barra Lateral -->
+        <aside class="barra-lateral" id="barra-lateral">
+            @template.layout.aside()
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="conteudo">
+            <!-- Cabeçalho -->
+            <header>
+                @template.layout.header()
+            </header>
+
+            <!-- ESCREVA SEU CÓDIGO AQUI -->
+            ${content}
+        </main>
+    </div>
+
+    <script>
+        document.getElementById("alterar-menu").addEventListener("click", function () {
+            document.getElementById("barra-lateral").classList.toggle("active");
+        });
+    </script>
 
 </body>
 
