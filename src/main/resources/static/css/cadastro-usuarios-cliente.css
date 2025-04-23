@@ -136,7 +136,7 @@ option:hover {
 .btn-salvar {
     width: 15rem;
     padding: 1.2rem;
-    background: var(--cor-primaria);
+    background: var(--cor-quinternaria);
     color: var(--cor-terciaria);
     font-size: 1rem;
     border-radius: 0.8rem;
