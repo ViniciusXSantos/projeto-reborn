@@ -5,11 +5,12 @@ import com.example.agencia_viagens.model.Endereco;
 import com.example.agencia_viagens.service.EnderecoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/enderecos")
 @RequiredArgsConstructor
 public class EnderecoController {
