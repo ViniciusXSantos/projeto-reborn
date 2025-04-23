@@ -12,12 +12,12 @@
                 onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
         </div>
     </form>
-    <a class="ancora-add-butao" href="/pacotes"><button class="add-butao">+</button></a>
+    <a class="ancora-add-butao" href="/pacotes/novo"><button class="add-butao">+</button></a>
 </section>
 <!-- Cards das viagens -->
 <section class="cards-section">
     <article class="card">
-        <img src="../assets/backgrounds/.png" alt="Foto da Viagem">
+        <img src="/assets/backgrounds/suica-2025.jpg" alt="Foto da Viagem">
         <h2>Viagem</h2>
         <p>Descrição</p>
 
@@ -27,8 +27,8 @@
 
 
         <div class="dados-viagem">
-            <h2>Data de partida</h2>
-            <h2>Data de chegada</h2>
+            <h3>Data de ida:</h3>
+            <h3>Data de volta:</h3>
         </div>
 
 
