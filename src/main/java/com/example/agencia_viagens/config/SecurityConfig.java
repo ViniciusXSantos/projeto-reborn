@@ -28,7 +28,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers( "/assets/**","/img/**", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().hasAuthority("ADMIN")
                 )
                 //.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .formLogin(login -> login.loginPage("/login")

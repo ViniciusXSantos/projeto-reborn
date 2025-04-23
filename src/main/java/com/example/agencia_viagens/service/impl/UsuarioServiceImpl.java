@@ -21,6 +21,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void save(UsuarioDTO dto) {
         Usuario user = new Usuario(dto.getNome(), dto.getEmail(), dto.getSenha());
+        user.setPapel("ADMIN");
         repository.save(user);
     }
 
