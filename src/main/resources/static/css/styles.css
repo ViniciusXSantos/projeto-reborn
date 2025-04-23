@@ -13,7 +13,7 @@
 
 body {
     height: 100%;
-    background-image: url("../assets/backgrounds/textura-de-plano-de-fundo.png");
+    background-image: url("/assets/backgrounds/textura-de-plano-de-fundo.png");
 }
 
 header {
