@@ -1,7 +1,11 @@
 @import com.example.agencia_viagens.dto.UsuarioDTO
+@import com.example.agencia_viagens.dto.Page
 
 @param UsuarioDTO user =  new UsuarioDTO()
-@template.layout.main(content = @`
+
+@template.layout.main(
+    page = new Page("Cadastro de Funcionário"),
+    content = @`
 <style>
             .caixa-conteudo {
                 display: flex;

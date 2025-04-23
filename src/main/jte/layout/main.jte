@@ -1,4 +1,5 @@
 @param gg.jte.Content content
+@param com.example.agencia_viagens.dto.Page page = null
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,7 +22,7 @@
     <link rel="stylesheet" href="/css/exibicao-pacote.css">
     <script src="/js/telefone-formatacao.js" defer ></script>
     <script src="/js/alternar-status.js" defer></script>
-    <title>#</title>
+    <title>${page == null ? "INNOVA TURISMO" : page.title()}</title>
     <style>
         @media (max-width: 540px) {
             .menu-hamburger {
@@ -53,7 +54,7 @@
         <main class="conteudo">
             <!-- Cabeçalho -->
             <header>
-                @template.layout.header()
+                @template.layout.header(page)
             </header>
 
             <!-- ESCREVA SEU CÓDIGO AQUI -->

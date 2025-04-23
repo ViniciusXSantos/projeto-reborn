@@ -1,4 +1,8 @@
-@template.layout.main(content = @`
+@import com.example.agencia_viagens.dto.Page
+
+@template.layout.main(
+    page = new Page("Gerenciamento de Cliente"),
+    content = @`
 <style>
     .botao-editar, .botao-deletar {
         text-align: center;

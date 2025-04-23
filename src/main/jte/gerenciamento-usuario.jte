@@ -1,9 +1,12 @@
 @import com.example.agencia_viagens.dto.UsuarioDTO
+@import com.example.agencia_viagens.dto.Page
 @import java.util.List
 
 @param List<UsuarioDTO> usuarios
 
-@template.layout.main(content = @`
+@template.layout.main(
+    page = new Page("Gerenciamento de Funcionário"),
+    content = @`
     
     <div class="formulario-container">
         <section class="secao-pesquisa">

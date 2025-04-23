@@ -1,4 +1,8 @@
-@template.layout.main(content = @`
+@import com.example.agencia_viagens.dto.Page
+
+@template.layout.main(
+    page = new Page("Gerenciamento de Pacote"),
+    content = @`
 <!-- ESCREVA SEU CÓDIGO AQUI -->
 <section class="secao-pesquisa">
     <form action="#" method="get" class="formulario-pesquisa">

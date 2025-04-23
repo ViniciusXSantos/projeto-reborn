@@ -1,4 +1,8 @@
-@template.layout.main(content = @`
+@import com.example.agencia_viagens.dto.Page
+
+@template.layout.main(
+    page = new Page("Cadastro de Hospedagem"),
+    content = @`
 
     <!-- Formulário -->
     <section class="formulario-conteiner">

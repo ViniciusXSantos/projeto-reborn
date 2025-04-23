@@ -1,4 +1,8 @@
-@template.layout.main(content = @`
+@import com.example.agencia_viagens.dto.Page
+
+@template.layout.main(
+    page = new Page("Cadastro de Pacote"),
+    content = @`
     <section class="formulario-container">
 
         <!-- Área para Foto Expandida -->
