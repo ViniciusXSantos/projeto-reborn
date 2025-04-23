@@ -3,6 +3,9 @@
 @template.layout.main(
     page = new Page("Cadastro de Pacote"),
     content = @`
+
+    <link rel="stylesheet" href="/css/cadastro-pacote.css">
+    
     <section class="formulario-container">
 
         <!-- Área para Foto Expandida -->

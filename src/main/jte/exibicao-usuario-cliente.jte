@@ -3,6 +3,9 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Cliente"),
     content = @`
+
+    <link rel="stylesheet" href="/css/exibicao-cadastro-cliente.css">
+    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">
     
 <style>
     .botao-editar, .botao-deletar {

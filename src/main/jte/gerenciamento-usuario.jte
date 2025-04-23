@@ -7,6 +7,8 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Funcionário"),
     content = @`
+
+    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">
     
     <div class="formulario-container">
         <section class="secao-pesquisa">
@@ -33,6 +35,7 @@
                                 <p>${dto.getEmail()}</p>
                             </div>
 
+                            <br>
                             <a href="/user/edit/${dto.getId()}"><button class="edita">Editar</button></a>
                             <a href="/user/remover/${dto.getId()}"> <button class="deleta">Deletar</button></a>
                         </div>

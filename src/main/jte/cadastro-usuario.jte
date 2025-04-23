@@ -80,12 +80,16 @@
 
                     <div class="caixa lado-a-lado">
                         <div class="caixa-input"><input type="text" placeholder="Nome *" id="nome" name="nome" class="input-sem-ponta"
-                            value="${user.getId()}" required></div>
+                            value="${user.getId()}" required>
+                        </div>
+                        
                         <div class="caixa-input"><input type="email" placeholder="E-mail *" id="email" name="email"
-                            value="${user.getEmail()}" class="input-sem-ponta" required></div>
+                            value="${user.getEmail()}" class="input-sem-ponta" required>
+                        </div>
 
                         <div class="caixa-input"><input type="password" placeholder="Senha *" id="senha" name="senha"
-                            value="${user.getSenha()}" class="input-sem-ponta" required></div>
+                            value="${user.getSenha()}" class="input-sem-ponta" required>
+                        </div>
                     </div>
 
                 </fieldset>

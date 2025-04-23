@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/cadastro.css">
-    <link rel="stylesheet" href="/css/cadastro-hospedagem.css">
+    <!--<link rel="stylesheet" href="/css/cadastro-hospedagem.css">
     <link rel="stylesheet" href="/css/cadastro-usuarios-cliente.css">
     <link rel="stylesheet" href="/css/cadastro-pacote.css">
-    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">
+    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">-->
     <link rel="stylesheet" href="/css/pesquisa.css">
-    <link rel="stylesheet" href="/css/cadastro-hospedagem.css"> 
+    <!--        <link rel="stylesheet" href="/css/cadastro-hospedagem.css"> 
     <link rel="stylesheet" href="/css/exibicao-cadastro-cliente.css">
     <link rel="stylesheet" href="/css/exibicao-hospedagem.css">
-    <link rel="stylesheet" href="/css/exibicao-pacote.css">
+    <link rel="stylesheet" href="/css/exibicao-pacote.css">-->
     <script src="/js/telefone-formatacao.js" defer ></script>
     <script src="/js/alternar-status.js" defer></script>
     <title>${page == null ? "INNOVA TURISMO" : page.title()}</title>

@@ -3,6 +3,9 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Hospedagem"),
     content = @`
+
+    <link rel="stylesheet" href="/css/exibicao-hospedagem.css">
+    
 <section class="secao-pesquisa">
     <form action="#" method="get" class="formulario-pesquisa">
         <div class="entrada-pesquisa">

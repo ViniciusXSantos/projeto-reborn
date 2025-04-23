@@ -3,6 +3,9 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Pacote"),
     content = @`
+    
+    <link rel="stylesheet" href="/css/exibicao-cadastro-cliente.css">
+    <link rel="stylesheet" href="/css/exibicao-pacote.css">
 
 <style>
     .img-viagem {
