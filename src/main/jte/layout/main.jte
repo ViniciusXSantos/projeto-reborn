@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/pesquisa.css">
     <link rel="stylesheet" href="/css/cadastro-hospedagem.css"> 
     <link rel="stylesheet" href="/css/exibicao-cadastro-cliente.css">
-    <link rel="stylesheet" href="/css/exibicao-hospedagens.css">
+    <link rel="stylesheet" href="/css/exibicao-hospedagem.css">
     <link rel="stylesheet" href="/css/exibicao-pacote.css">
     <script src="/js/telefone-formatacao.js" defer ></script>
     <script src="/js/alternar-status.js" defer></script>
