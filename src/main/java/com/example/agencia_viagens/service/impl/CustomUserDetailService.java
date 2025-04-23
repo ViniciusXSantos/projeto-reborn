@@ -27,7 +27,7 @@ public class CustomUserDetailService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado."));
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(usuario.getPapel()));
+        authorities.add(new SimpleGrantedAuthority("ADMIN"));
         return new User(usuario.getEmail(), usuario.getSenha(), authorities);
 
     }
