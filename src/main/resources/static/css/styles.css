@@ -142,6 +142,10 @@ h1 {
     /*height: 100%;*/
 }
 
+.ancora-add-butao {
+    text-decoration: none;
+}
+
 @media (max-width: 540px) {
     /* Exibir o botão do menu hambúrguer */
     .menu-hamburger {

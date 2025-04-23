@@ -68,22 +68,24 @@
             <span>+</span>
         </div>
 
-        <form action="/user/save" method="post" id="usuario-formulario" class="campos-formulario lado-a-lado">
+        <form action="/user/save" method="post" id="usuario-formulario">
 
-            <fieldset>
-                <legend>Dados Pessoais</legend>
+            <div class="campos-formulario">
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
 
-                <div class="caixa lado-a-lado">
-                    <div class="caixa-input"><input type="text" placeholder="Nome *" id="nome" name="nome" class="input-sem-ponta"
-                           value="${user.getId()}" required></div>
-                    <div class="caixa-input"><input type="email" placeholder="E-mail *" id="email" name="email"
-                           value="${user.getEmail()}" class="input-sem-ponta" required></div>
+                    <div class="caixa lado-a-lado">
+                        <div class="caixa-input"><input type="text" placeholder="Nome *" id="nome" name="nome" class="input-sem-ponta"
+                            value="${user.getId()}" required></div>
+                        <div class="caixa-input"><input type="email" placeholder="E-mail *" id="email" name="email"
+                            value="${user.getEmail()}" class="input-sem-ponta" required></div>
 
-                    <div class="caixa-input"><input type="password" placeholder="Senha *" id="senha" name="senha"
-                           value="${user.getSenha()}" class="input-sem-ponta" required></div>
-                </div>
+                        <div class="caixa-input"><input type="password" placeholder="Senha *" id="senha" name="senha"
+                            value="${user.getSenha()}" class="input-sem-ponta" required></div>
+                    </div>
 
-            </fieldset>
+                </fieldset>
+            </div>
 
             <button type="submit" class="btn-salvar">
                 <img src="../assets/icons/icone-botao-de-salvar.svg" class="icone">Salvar

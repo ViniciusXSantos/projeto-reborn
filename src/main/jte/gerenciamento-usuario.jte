@@ -13,7 +13,7 @@
                     <input type="text" placeholder="Pesquise" name="search" onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
                 </div>
             </form>
-            <a href="/user/cadastro"><button class="add-butao">+</button></a>
+            <a class="ancora-add-butao" href="/user/cadastro"><button class="add-butao">+</button></a>
         </section>
 
         <section class="cartoes-usuario">
