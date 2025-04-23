@@ -74,7 +74,7 @@
         </form>
 
         <!-- Botão de Salvar -->
-        <button class="btn-salvar"><img src="../assets/icons/icone-botao-de-salvar.svg"
+        <button class="btn-salvar"><img src="/assets/icons/icone-botao-de-salvar.svg"
                                         class="icone">Salvar</button>
     </section>
 `)   

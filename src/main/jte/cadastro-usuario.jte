@@ -92,7 +92,7 @@
             </div>
 
             <button type="submit" class="btn-salvar">
-                <img src="../assets/icons/icone-botao-de-salvar.svg" class="icone">Salvar
+                <img src="/assets/icons/icone-botao-de-salvar.svg" class="icone">Salvar
             </button>
         </form>
     </div>
