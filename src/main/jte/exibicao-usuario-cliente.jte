@@ -1,4 +1,11 @@
 @template.layout.main(content = @`
+<style>
+    .botao-editar, .botao-deletar {
+        text-align: center;
+    }
+    
+</style>
+<div class="formulario-container">
 <!-- Barra de Pesquisa e Botão Adicionar -->
 <section class="secao-pesquisa">
     <form action="#" method="get" class="formulario-pesquisa">
@@ -8,16 +15,20 @@
                 onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
         </div>
     </form>
-    <a href="/clientes/novo"><button class="add-butao">+</button></a>
+    <a class="ancora-add-butao" href="/clientes/novo"><button class="add-butao">+</button></a>
 </section>
 
 <!-- Cards dos Funcionários -->
-<section class="cards-section">
-    <article class="card">
-        <img src="/assets/backgrounds/perfil-equipe.png" alt="Foto do Funcionário">
-        <h2>Nome do Cliente</h2>
-        <p>Descrição</p>
-        <div class="botoes">
+<section class="cartoes-usuario">
+    <article class="cartao">
+        <div class="foto"><img src="/assets/backgrounds/perfil-equipe.png" alt="Foto do Funcionário"></div>
+        
+        <div class="cartao-corpo">
+            <div class="descricao">
+                <h2>Nome do Cliente</h2>
+                <p>Descrição</p>
+            </div>
+            
             <button class="botao-editar">
                 <img src="/assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
                 Editar
@@ -30,6 +41,7 @@
     </article>
     <!-- Repita a estrutura do card para outros clientes -->
 </section>
+</div>
 <!-- Script para ativar/desativar o menu -->
 <script>
     document.getElementById("alterar-menu").addEventListener("click", function () {

@@ -17,28 +17,42 @@
         </section>
 
         <section class="cartoes-usuario">
-        @if(usuarios!=null)
+            @if(usuarios!=null)
 
-            @for(UsuarioDTO dto:usuarios)
+                @for(UsuarioDTO dto:usuarios)
 
-                <div class="cartao">
-                    <div class="foto"><img src="../assets/backgrounds/perfil-equipe.png" alt="Foto do usuário"></div>
+                    <div class="cartao">
+                        <div class="foto"><img src="../assets/backgrounds/perfil-equipe.png" alt="Foto do usuário"></div>
 
-                    <div class="cartao-corpo">
-                        <div class="descricao">
-                            <h2>${dto.getNome()}</h2>
-                            <p>${dto.getEmail()}</p>
+                        <div class="cartao-corpo">
+                            <div class="descricao">
+                                <h2>${dto.getNome()}</h2>
+                                <p>${dto.getEmail()}</p>
+                            </div>
+
+                            <a href="/user/edit/${dto.getId()}"><button class="edita">Editar</button></a>
+                            <a href="/user/remover/${dto.getId()}"> <button class="deleta">Deletar</button></a>
                         </div>
-
-                        <a href="/user/edit/${dto.getId()}"><button class="edita">Editar</button></a>
-                        <a href="/user/remover/${dto.getId()}"> <button class="deleta">Deletar</button></a>
                     </div>
+
+                @endfor
+
+            @endif
+
+            <div class="cartao">
+                <div class="foto"><img src="../assets/backgrounds/perfil-equipe.png" alt="Foto do usuário"></div>
+                
+                <div class="cartao-corpo">
+                    <div class="descricao">
+                        <h2>Aline</h2>
+                        <p>Admistradora</p>
+                    </div>
+
+                    <button class="edita">Editar</button>
+                    <button class="deleta">Deletar</button>
+                    <button class="ativo">Ativar</button>
                 </div>
-
-            @endfor
-
-        @endif
-
+            </div>
 
         </section>
     </div>
