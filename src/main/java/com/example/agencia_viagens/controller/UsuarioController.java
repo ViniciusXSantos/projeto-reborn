@@ -2,6 +2,7 @@ package com.example.agencia_viagens.controller;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UsuarioController {
 
+    private final PasswordEncoder encoder;
     private final UsuarioService usuarioService;
 
     @GetMapping()
@@ -39,6 +41,7 @@ public class UsuarioController {
 
     @PostMapping("/save")
     public String userSave(UsuarioDTO dto) {
+        dto.setSenha(encoder.encode(dto.getSenha()));
         usuarioService.save(dto);
         return "redirect:/user";
     }
