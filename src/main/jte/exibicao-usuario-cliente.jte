@@ -3,12 +3,14 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Cliente"),
     content = @`
+    
 <style>
     .botao-editar, .botao-deletar {
         text-align: center;
     }
     
 </style>
+
 <div class="formulario-container">
 <!-- Barra de Pesquisa e Botão Adicionar -->
 <section class="secao-pesquisa">
