@@ -1,3 +1,3 @@
 @template.layout.main(content = @`
-    <p>Bom dia</p>
+    <img src="/assets/backgrounds/aviator.svg" class="aviator">
 `)   

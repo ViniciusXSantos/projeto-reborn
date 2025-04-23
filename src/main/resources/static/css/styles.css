@@ -72,6 +72,16 @@ header, .formulario-container {
     transform: scale(1.2);
 }
 
+    .aviator{
+        position: absolute;
+        top: 20%;
+        width: calc(100% - 250px); /* Ajuste para a largura da barra lateral */
+        height: 80%;
+        background-size: cover;
+        background-position: center center;
+        z-index: -10000;
+    }
+
 .logo img:hover {
     transform: scale(1.5); /* Aumenta 20% ao passar o mouse */
 }
