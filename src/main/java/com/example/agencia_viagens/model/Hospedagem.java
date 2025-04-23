@@ -1,31 +1,50 @@
 package com.example.agencia_viagens.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
+@Data
 @Entity
-@Table(name = "hospedagem")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@ToString(callSuper = true, exclude = "endereco")
-@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-public class Hospedagem extends Pessoa {
-
+@Table(name = "hospedagens")
+public class Hospedagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_hospedagem", nullable = false)
-    @EqualsAndHashCode.Include
-    private Long idHospedagem;
+    private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "id_endereco", referencedColumnName = "id_endereco")
-    private Endereco endereco;
+    @Column(nullable = false, unique = true)
+    private String nome;
 
-    @Override
-    public String obterDescricao() {
-        return "Hospedagem ID: " + idHospedagem;
-    }
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false, unique = true)
+    private String telefone1;
+
+    @Column(unique = true)
+    private String telefone2;
+
+    @Column(nullable = false)
+    private String tipoTelefone1;
+
+    private String tipoTelefone2;
+
+    @Column(nullable = false)
+    private String pais;
+
+    @Column(nullable = false)
+    private String estado;
+
+    @Column(nullable = false)
+    private String cidade;
+
+    @Column(nullable = false)
+    private String bairro;
+
+    @Column(nullable = false)
+    private String logradouro;
+
+    @Column(nullable = false)
+    private String numero;
+
+    private String complemento;
 }

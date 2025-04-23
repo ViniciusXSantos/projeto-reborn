@@ -1,51 +1,39 @@
-@import com.example.agencia_viagens.dto.Page
-
-@template.layout.main(
-    page = new Page("Cadastro de Hospedagem"),
-    content = @`
-
-    <!-- Formulário -->
+@template.layout.main(content = @`
     <section class="formulario-conteiner">
-        <!-- Área para Foto Expandida -->
-        <div class="envio-de-foto">
-            <input type="file" id="file-upload" class="input-file">
-            <label for="file-upload" class="file-label">
-                <span>+</span>
-                <p>Clique aqui para adicionar uma Foto</p>
-            </label>
-        </div>
+        <!-- Mensagens de feedback -->
 
         <!-- Campos do Formulário -->
         <form action="/hospedagens/cadastro" method="post" class="campos-formulario">
             <fieldset>
                 <legend>Dados da Hospedagem</legend>
                 <div class="caixa lado-a-lado">
-                    <div class="caixa-input"><input type="text" placeholder="Nome" class="input-sem-ponta"
-                                                    required></div>
-                    <div class="caixa-input"><input type="email" placeholder="E-mail" class="input-sem-ponta"
-                                                    required></div>
+                    <div class="caixa-input">
+                        <input type="text" name="nome" placeholder="Nome" class="input-sem-ponta" required>
+                    </div>
+                    <div class="caixa-input">
+                        <input type="email" name="email" placeholder="E-mail" class="input-sem-ponta" required>
+                    </div>
                 </div>
                 <div class="caixa lado-a-lado">
                     <div class="caixa-input">
                         <div class="lado-mesclado">
-                            <input type="tel" placeholder="Telefone" class="telefone" required>
-                            <select name="" id="" class="telefone-selecao" required>
+                            <input type="tel" name="telefone1" placeholder="Telefone" class="telefone" required>
+                            <select name="tipoTelefone1" class="telefone-selecao" required>
                                 <option value="" disabled selected>Selecione...</option>
-                                <option value="">Phone</option>
-                                <option value="">Telegram</option>
-                                <option value="">WhatsApp</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Telegram">Telegram</option>
+                                <option value="WhatsApp">WhatsApp</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="caixa-input">
                         <div class="lado-mesclado">
-                            <input type="tel" placeholder="Telefone" class="telefone">
-                            <select name="" id="" class="telefone-selecao">
+                            <input type="tel" name="telefone2" placeholder="Telefone" class="telefone">
+                            <select name="tipoTelefone2" class="telefone-selecao">
                                 <option value="" disabled selected>Selecione...</option>
-                                <option value="">Phone</option>
-                                <option value="">Telegram</option>
-                                <option value="">WhatsApp</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Telegram">Telegram</option>
+                                <option value="WhatsApp">WhatsApp</option>
                             </select>
                         </div>
                     </div>
@@ -55,26 +43,36 @@
             <fieldset>
                 <legend>Endereço da Hospedagem</legend>
                 <div class="caixa lado-a-lado">
-                    <div class="caixa-input"><input type="text" placeholder="País" class="input-sem-ponta"></div>
-                    <div class="caixa-input"><input type="text" placeholder="Estado" class="input-sem-ponta">
+                    <div class="caixa-input">
+                        <input type="text" name="pais" placeholder="País" class="input-sem-ponta" required>
                     </div>
-                    <div class="caixa-input"><input type="text" placeholder="Cidade" class="input-sem-ponta"></div>
-                    <div class="caixa-input"><input type="text" placeholder="Bairro" class="input-sem-ponta">
+                    <div class="caixa-input">
+                        <input type="text" name="estado" placeholder="Estado" class="input-sem-ponta" required>
+                    </div>
+                    <div class="caixa-input">
+                        <input type="text" name="cidade" placeholder="Cidade" class="input-sem-ponta" required>
+                    </div>
+                    <div class="caixa-input">
+                        <input type="text" name="bairro" placeholder="Bairro" class="input-sem-ponta" required>
                     </div>
                 </div>
                 <div class="caixa lado-a-lado">
-                    <div class="caixa-input"><input type="text" placeholder="Logradouro" class="input-sem-ponta">
+                    <div class="caixa-input">
+                        <input type="text" name="logradouro" placeholder="Logradouro" class="input-sem-ponta" required>
                     </div>
-                    <div class="caixa-input"><input type="text" placeholder="Número"
-                                                    class="input-sem-ponta"></div>
-                    <div class="caixa-input"><input type="text" placeholder="Complemento" class="input-sem-ponta">
+                    <div class="caixa-input">
+                        <input type="text" name="numero" placeholder="Número" class="input-sem-ponta" required>
+                    </div>
+                    <div class="caixa-input">
+                        <input type="text" name="complemento" placeholder="Complemento" class="input-sem-ponta">
                     </div>
                 </div>
             </fieldset>
-        </form>
 
-        <!-- Botão de Salvar -->
-        <button class="btn-salvar"><img src="/assets/icons/icone-botao-de-salvar.svg"
-                                        class="icone">Salvar</button>
+            <!-- Botão de Salvar -->
+            <button type="submit" class="btn-salvar">
+                <img src="../assets/icons/icone-botao-de-salvar.svg" class="icone">Salvar
+            </button>
+        </form>
     </section>
-`)   
+`)
