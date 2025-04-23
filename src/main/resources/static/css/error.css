@@ -1,0 +1,17 @@
+.cartoes-usuario {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.mensagem-erro {
+    padding: 5%;
+    border-radius: 50px;
+    width: 30%;
+    background-color: var(--cor-quaternaria);
+}
+
+.texto-erro {
+    font-size: 240%;
+    color: var(--cor-quaternaria);
+}

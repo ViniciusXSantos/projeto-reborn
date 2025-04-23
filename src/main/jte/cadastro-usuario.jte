@@ -1,7 +1,21 @@
 @import com.example.agencia_viagens.dto.UsuarioDTO
 @import com.example.agencia_viagens.dto.Page
+@import java.util.List
 
 @param UsuarioDTO user =  new UsuarioDTO()
+
+@param List<String> errors
+
+@if (errors != null && !errors.isEmpty())
+    <div style="background-color: red">
+        <ul>
+            @for (var error : errors)
+                <li>${error}</li>
+            @endfor
+            <li></li>
+        </ul>
+    </div>
+@endif
 
 @template.layout.main(
     page = new Page("Cadastro de Funcionário"),

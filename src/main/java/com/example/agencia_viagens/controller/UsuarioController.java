@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.agencia_viagens.dto.UsuarioDTO;
 import com.example.agencia_viagens.service.UsuarioService;
@@ -38,7 +39,6 @@ public class UsuarioController {
         return "cadastro-usuario";
     }
 
-
     @PostMapping("/save")
     public String userSave(UsuarioDTO dto) {
         dto.setSenha(encoder.encode(dto.getSenha()));
@@ -56,6 +56,14 @@ public class UsuarioController {
     public String editar(@PathVariable Long userId, Model model) {
         model.addAttribute("user",  usuarioService.findById(userId)); 
         return "/user/cadastro";
+    }
+
+    @GetMapping("/create")
+    public ModelAndView formCreate() {
+        var model = new ModelAndView();
+        model.setViewName("cadastro-usuario");
+        model.addObject("user", new UsuarioDTO());
+        return model;
     }
     
 }
