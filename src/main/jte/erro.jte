@@ -14,14 +14,13 @@
     }
 
     .texto-erro {
-        font-size: 540%;
-        color: var(--cor-terciaria);
+        font-size: 240%;
+        color: var(--cor-quaternaria);
     }
 
-    <div class="cartoes-usuario">
-        <div class="mensagem-erro">
-            <p class="texto-erro">ERRO</p>
-        </div>                    
+    <div class="cartoes-usuario" style="display: block;">
+        <div><img src="../assets/backgrounds/erro-monstro.png" style="width: 50%;"></div>
+        <div><p class="texto-erro">OPS! NÃO ENCONTRAMOS ESSA PÁGINA</p></div>
     </div>
 
 `)  
