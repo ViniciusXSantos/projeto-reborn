@@ -11,7 +11,7 @@
                 onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
         </div>
     </form>
-    <a class="add-butao" href="/hospedagens/cadastro" > + </a>
+    <a class="add-butao ancora-add-butao" href="/hospedagens/cadastro" > + </a>
 </section>
 
 <div class="bloco-exibicao">

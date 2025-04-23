@@ -12,7 +12,7 @@
                 onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
         </div>
     </form>
-    <button class="add-butao">+</button>
+    <a class="ancora-add-butao" href="/pacotes"><button class="add-butao">+</button></a>
 </section>
 <!-- Cards das viagens -->
 <section class="cards-section">
