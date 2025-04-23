@@ -31,7 +31,7 @@
                         </div>
 
                         <a href="/user/edit/${dto.getId()}"><button class="edita">Editar</button></a>
-                       <a href="/user/remover/${dto.getId()}"> <button class="deleta">Deletar</button></a>
+                        <a href="/user/remover/${dto.getId()}"> <button class="deleta">Deletar</button></a>
                     </div>
                 </div>
 

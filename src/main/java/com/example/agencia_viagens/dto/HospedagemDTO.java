@@ -21,7 +21,7 @@ public record HospedagemDTO(
     @NotNull
     Endereco endereco,
 
-    String descricao // Campo adicional para exibição
+    String descricao
 ) {
 
     public HospedagemDTO() {
