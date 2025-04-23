@@ -18,7 +18,7 @@
                 </div>
 
                 <!-- Campos do Formulário -->
-                <form action="" method="post">
+                <form action="/clientes/novo" method="post">
 
                     <div class="campos-formulario">
                         <fieldset>
