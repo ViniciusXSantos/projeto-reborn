@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --cor-bg: #719a37;
+    --cor-botao-toggle: #ab3d1c;
+    --gradiente-bg: linear-gradient(90deg, #c8ea97, #eafad4);
+    --cor-input: #fefdf3;
+    --cor-texto: #140b0c;
+    --cor-bg-login-cadastro: #c8ea97;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--gradiente-bg);
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/icons/wave.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: waveAnimation 15s infinite alternate-reverse;
+}
+
+.conteiner {
+    position: relative;
+    width: 850px;
+    height: 550px;
+    background: var(--cor-bg-login-cadastro);
+    border-radius: 30px;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+}
+
+.caixa-de-formulario {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--cor-bg-login-cadastro);
+    display: flex;
+    align-items: center;
+    color: var(--cor-texto);
+    text-align: center;
+    padding: 40px;
+    z-index: 2;
+    transition: 0.6s ease-in-out 1.2s, visibility 0s 1s ease-in-out;
+}
+
+form {
+    width: 100%;
+}
+
+.conteiner h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.conteiner p {
+    font-size: 14.5px;
+    margin: 15px 0;
+}
+
+.caixa-de-input {
+    position: relative;
+    margin: 30px 0;
+}
+
+.caixa-de-input input {
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    background: var(--cor-input);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: var(--cor-texto);
+    font-weight: 500;
+}
+
+.caixa-de-input input::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+.caixa-de-input i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+
+.btn {
+    width: 100%;
+    height: 48px;
+    background: var(--cor-botao-toggle);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: none;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.toggle-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-box::before {
+    content: '';
+    position: absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: var(--cor-bg);
+    border-radius: 150px;
+    z-index: 4;
+    transition: 2s ease-in-out;
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 4;
+    transition: 0.6s ease-in-out;
+}
+
+.toggle-panel.toggle-esquerdo {
+    left: 0;
+    transition-delay: 1.2s;
+}
+
+.toggle-panel p {
+    margin-bottom: 20px;
+}
+
+.toggle-panel .btn {
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid var(--cor-bg-login-cadastro);
+    box-shadow: none;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 650px) {
+    .conteiner {
+        height: calc(100vh - 40px);
+    }
+
+    .caixa-de-formulario {
+        width: 100%;
+        height: 70%;
+        bottom: 0;
+    }
+
+
+    .toggle-box::before {
+        left: 0;
+        width: 100%;
+        height: 300%;
+        top: -270%;
+        border-radius: 20vw;
+    }
+
+
+    .toggle-box h1 {
+        font-size: 50px;
+    }
+
+    .toggle-panel {
+        width: 100%;
+        height: 30%;
+    }
+
+    .toggle-panel.toggle-esquerdo {
+        top: 0;
+    }
+
+    .conteiner.ativo .toggle-panel.toggle-esquerdo {
+        left: 0;
+        top: -30%;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    .caixa-de-input {
+        margin-top: 5px;
+    }
+
+    .caixa-de-input input {
+        font-size: 12px;
+    }
+
+    .caixa-de-formulario {
+        padding: 20px;
+    }
+
+    .toggle-panel h1 {
+        font-size: 30px;
+    }
+}
