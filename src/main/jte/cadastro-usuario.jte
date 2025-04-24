@@ -77,7 +77,6 @@
             .then(retorno => console.log(retorno))  // Exibindo os produtos
   
         </script>
-    </head>
 
 <section class="formulario-container">
     <!-- Área para Foto Expandida -->
@@ -94,10 +93,10 @@
 
         <!--<form action="${user.getId() != null ? "/user/save" : "/user/edit/${user.getId()"}" method="post" id="usuario-formulario">-->
 
-        <!--@var formAction = user.getId() != null ? "/user/edit/user.getId()" + user.getId() : "/user/save"
+        <!--@var formAction = user.getId() != null ? "/user/edit/" + user.getId() : "/user/save"
         <form action="${formAction}" method="post" id="usuario-formulario">-->
 
-        !{var formAction = user.getId() != null ? "/user/edit/user.getId()" + user.getId() : "/user/save";}
+        !{var formAction = user.getId() != null ? "/user/edit/" + user.getId() : "/user/save";}
         <form action="${formAction}" method="post" id="usuario-formulario">
 
             <div class="campos-formulario">

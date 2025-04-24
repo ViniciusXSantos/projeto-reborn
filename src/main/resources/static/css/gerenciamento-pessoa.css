@@ -79,8 +79,8 @@
     color: white;
 }
 
-.cartao .deleta:hover {
-    background: #c0392b;
+.cartao .deleta:hover, .edita:hover {
+    background: var(--cor-quaternaria);
 }
 
 .cartao .ativo {
