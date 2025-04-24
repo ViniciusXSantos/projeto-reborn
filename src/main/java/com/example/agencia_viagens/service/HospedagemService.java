@@ -31,4 +31,24 @@ public class HospedagemService {
 
         repository.save(hospedagem);
     }
+
+    // Novo método para listar todas as hospedagens
+    public List<Hospedagem> listarTodas() {
+        return repository.findAll(); // Usa o método padrão do JpaRepository
+    }
+
+    // Opcional: Método para converter Hospedagem em HospedagemDTO
+    public List<HospedagemDTO> listarTodasDTO() {
+        return repository.findAll().stream()
+                .map(h -> new HospedagemDTO(
+                        h.getId(),
+                        h.getNome(),
+                        h.getTelefone1(),
+                        h.getTelefone2(),
+                        h.getLogradouro(),
+                        h.getNumero(),
+                        h.getCidade()))
+                .collect(Collectors.toList());
+    }
+
 }
