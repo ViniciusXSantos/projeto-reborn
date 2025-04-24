@@ -2,6 +2,7 @@ package com.example.agencia_viagens.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.agencia_viagens.dto.UsuarioDTO;
+import com.example.agencia_viagens.model.Usuario;
+import com.example.agencia_viagens.repository.UsuarioRepository;
 import com.example.agencia_viagens.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,6 +28,8 @@ public class UsuarioController {
 
     private final PasswordEncoder encoder;
     private final UsuarioService usuarioService;
+
+     private final UsuarioRepository repository;
 
     @GetMapping()
     public String gerenciamentoUser(UsuarioDTO user,Model model){
@@ -57,12 +62,31 @@ public class UsuarioController {
         model.addAttribute("user",  usuarioService.findById(userId)); 
         return "/user/cadastro";
     }*/
-    public ModelAndView editar(@PathVariable("userId") Long id) {
+    public ModelAndView buscarParaEditar(@PathVariable("userId") Long id) {
         var model = new ModelAndView();
         model.setViewName("cadastro-usuario");
         model.addObject("user", usuarioService.findById(id));
+
+
         return model;
     }
+
+    @PostMapping("/edit/{userId}")
+    public String editarSave(@PathVariable("userId") Long userId, UsuarioDTO dto) {
+        Usuario original = repository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+
+                if (!dto.getSenha().isBlank()) {
+                    dto.setSenha(encoder.encode(dto.getSenha()));
+                }else{
+                    // throw new Exception(null);
+                }
+        
+        BeanUtils.copyProperties(dto, original, "id");
+        repository.save(original);
+        return "redirect:/user";
+    }
+    
     /*@PostMapping("/edit/{userId}")
     public String editarSave(@PathVariable("userId") Long userId, UsuarioDTO dto) {
         UsuarioDTO original = usuarioService.findById(dto.getId());
