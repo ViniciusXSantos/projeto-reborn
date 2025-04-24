@@ -10,13 +10,6 @@ content = @`
     <link rel="stylesheet" href="/css/exibicao-hospedagem.css">
 
     <section class="secao-pesquisa">
-        <form action="#" method="get" class="formulario-pesquisa">
-            <div class="entrada-pesquisa">
-                <img src="/assets/icons/botao-de-pesquisar.svg" alt="Ícone de Pesquisa" class="icone-pesquisa">
-                <input type="text" placeholder="Pesquise" name="search"
-                       onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
-            </div>
-        </form>
         <a class="add-butao ancora-add-butao" href="/hospedagens/cadastro"> + </a>
     </section>
 
