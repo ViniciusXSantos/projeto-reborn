@@ -3,6 +3,7 @@ package com.example.agencia_viagens.controller;
 import com.example.agencia_viagens.dto.HospedagemDTO;
 import com.example.agencia_viagens.model.Hospedagem;
 import com.example.agencia_viagens.service.HospedagemService;
+import com.example.agencia_viagens.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,6 +91,30 @@ public class HospedagemController {
             redirectAttributes.addFlashAttribute("sucesso", "Hospedagem deletada com sucesso!");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("erro", "Erro ao deletar: " + e.getMessage());
+        }
+        return "redirect:/hospedagens";
+    }
+
+    // Mostra o formulário de edição
+    @GetMapping("/editar/{id}")
+    public String mostrarFormEdicao(@PathVariable Long id, Model model) {
+        Hospedagem hospedagem = hospedagemService.buscarPorId(id);
+        model.addAttribute("hospedagem", hospedagem);
+        return "editar-hospedagem"; // Nome do seu template JTE
+    }
+
+    // Processa a edição
+    @PostMapping("/editar/{id}")
+    public String editarHospedagem(
+            @PathVariable Long id,
+            @ModelAttribute HospedagemDTO dto,
+            RedirectAttributes redirectAttributes) {
+
+        try {
+            hospedagemService.editarHospedagem(id, dto);
+            redirectAttributes.addFlashAttribute("sucesso", "Hospedagem atualizada!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("erro", "Erro ao editar: " + e.getMessage());
         }
         return "redirect:/hospedagens";
     }

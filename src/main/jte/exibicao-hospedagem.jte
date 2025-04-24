@@ -39,7 +39,7 @@ content = @`
         </div>
 
         <div class="acoes-hospedagem">
-            <button class="btn-editar">Editar</button>
+            <a href="/hospedagens/editar/${dto.getId()}" class="btn-editar">Editar</a>
             <a href="/hospedagens/deletar/${dto.getId()}" class="btn-deletar">Deletar</a>
         </div>
     </div>

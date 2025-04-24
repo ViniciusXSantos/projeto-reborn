@@ -15,6 +15,11 @@ public class HospedagemService {
     @Autowired
     private HospedagemRepository repository;
 
+    public Hospedagem buscarPorId(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Hospedagem não encontrada"));
+    }
+
     public void salvarHospedagem(Hospedagem hospedagem) {
         // Validações
         if (repository.existsByEmail(hospedagem.getEmail())) {
@@ -56,6 +61,21 @@ public class HospedagemService {
             throw new EntityNotFoundException("Hospedagem não encontrada com ID: " + id);
         }
         repository.deleteById(id);
+    }
+
+    public void editarHospedagem(Long id, HospedagemDTO dto) {
+        Hospedagem hospedagem = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Hospedagem não encontrada"));
+
+        // Atualiza APENAS os campos permitidos (front-end)
+        hospedagem.setNome(dto.getNome());
+        hospedagem.setTelefone1(dto.getTelefone1());
+        hospedagem.setTelefone2(dto.getTelefone2());
+        hospedagem.setLogradouro(dto.getLogradouro());
+        hospedagem.setNumero(dto.getNumero());
+        hospedagem.setCidade(dto.getCidade());
+
+        repository.save(hospedagem);
     }
 
 }
