@@ -1,11 +1,16 @@
 package com.example.agencia_viagens.controller;
 
+import com.example.agencia_viagens.dto.HospedagemDTO;
 import com.example.agencia_viagens.model.Hospedagem;
 import com.example.agencia_viagens.service.HospedagemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/hospedagens")
@@ -62,7 +67,31 @@ public class HospedagemController {
 
     @GetMapping
     public String listarHospedagens(Model model) {
-        return "exibicao-hospedagem";
+        List<Hospedagem> hospedagens = hospedagemService.listarTodas(); // Busca do banco
+        List<HospedagemDTO> hospedagensDTO = hospedagens.stream()
+                .map(h -> new HospedagemDTO(
+                        h.getId(),
+                        h.getNome(),
+                        h.getTelefone1(),
+                        h.getTelefone2(),
+                        h.getLogradouro(),
+                        h.getNumero(),
+                        h.getCidade()))
+                .collect(Collectors.toList()); // Converte para DTO
+
+        model.addAttribute("hospedagens", hospedagensDTO); // Envia para a view
+        return "exibicao-hospedagem"; // Nome do template (sem .jte)
+    }
+
+    @GetMapping("/deletar/{id}")
+    public String deletarHospedagem(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        try {
+            hospedagemService.deletarHospedagem(id);
+            redirectAttributes.addFlashAttribute("sucesso", "Hospedagem deletada com sucesso!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("erro", "Erro ao deletar: " + e.getMessage());
+        }
+        return "redirect:/hospedagens";
     }
 
 }

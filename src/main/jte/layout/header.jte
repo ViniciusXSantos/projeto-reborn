@@ -5,8 +5,7 @@
     <div class="info-usuario">
         <img src="/assets/icons/icone-avatar.svg" class="avatar" alt="Avatar">
         <div class="detalhes-usuario">
-            <p>Lorem Ipsum Dolo</p>
-            <small>Admin</small>
+            <h2>Admin</h2>
         </div>
     </div>
 </div>

@@ -1,29 +1,33 @@
 package com.example.agencia_viagens.dto;
 
-import com.example.agencia_viagens.model.Endereco;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record HospedagemDTO(
+@Data
+@NoArgsConstructor
+public class HospedagemDTO {
 
-    Long idHospedagem,
+    private Long id;
 
-    @NotNull
-    @Size(min = 3, max = 255)
-    String nome,
+    private String nome;
 
-    @NotNull
-    @Email
-    @Size(max = 255)
-    String email,
+    private String telefone1;
 
-    @NotNull
-    Endereco endereco,
+    private String telefone2;
 
-    String descricao
-) {
+    private String logradouro;
 
-    public HospedagemDTO() {
-        this(null, null, null, null, null);
-    }}
+    private String numero;
+
+    private String cidade;
+
+    public HospedagemDTO(Long id, String nome, String telefone1, String telefone2, String logradouro, String numero, String cidade) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.cidade = cidade;
+    }
+}
