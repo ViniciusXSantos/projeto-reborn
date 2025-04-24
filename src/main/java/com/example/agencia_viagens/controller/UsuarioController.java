@@ -53,10 +53,29 @@ public class UsuarioController {
     }
 
     @GetMapping("/edit/{userId}")
-    public String editar(@PathVariable Long userId, Model model) {
+    /*public String editar(@PathVariable Long userId, Model model) {
         model.addAttribute("user",  usuarioService.findById(userId)); 
         return "/user/cadastro";
+    }*/
+    public ModelAndView editar(@PathVariable("userId") Long id) {
+        var model = new ModelAndView();
+        model.setViewName("cadastro-usuario");
+        model.addObject("user", usuarioService.findById(id));
+        return model;
     }
+    /*@PostMapping("/edit/{userId}")
+    public String editarSave(@PathVariable("userId") Long userId, UsuarioDTO dto) {
+        UsuarioDTO original = usuarioService.findById(dto.getId());
+        
+        if (!dto.getSenha().isBlank()) {
+            dto.setSenha(encoder.encode(dto.getSenha()));
+        } else {
+            dto.setSenha(original.getSenha()); // mantém senha anterior
+        }
+
+        usuarioService.save(dto);
+        return "redirect:/user";
+    }*/
 
     @GetMapping("/create")
     public ModelAndView formCreate() {
