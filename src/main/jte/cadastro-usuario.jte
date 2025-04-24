@@ -86,15 +86,28 @@
             <span>+</span>
         </div>
 
-        <form action="/user/save" method="post" id="usuario-formulario">
+        <!--@if (${user.getId() != null})
+            <form action="/user/save" method="post" id="usuario-formulario">
+        @else
+            <form action="/user/edit/${user.getId()}" method="post" id="usuario-formulario">
+        @endif-->
+
+        <!--<form action="${user.getId() != null ? "/user/save" : "/user/edit/${user.getId()"}" method="post" id="usuario-formulario">-->
+
+        <!--@var formAction = user.getId() != null ? "/user/edit/user.getId()" + user.getId() : "/user/save"
+        <form action="${formAction}" method="post" id="usuario-formulario">-->
+
+        !{var formAction = user.getId() != null ? "/user/edit/user.getId()" + user.getId() : "/user/save";}
+        <form action="${formAction}" method="post" id="usuario-formulario">
 
             <div class="campos-formulario">
                 <fieldset>
                     <legend>Dados Pessoais</legend>
 
+                    <input type="hidden" name="id" value="${user.getId()}">
                     <div class="caixa lado-a-lado">
                         <div class="caixa-input"><input type="text" placeholder="Nome *" id="nome" name="nome" class="input-sem-ponta"
-                            value="${user.getId()}" required>
+                            value="${user.getNome()}" required>
                         </div>
                         
                         <div class="caixa-input"><input type="email" placeholder="E-mail *" id="email" name="email"
