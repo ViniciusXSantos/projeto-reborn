@@ -28,7 +28,7 @@ body {
 .img-container {
     width: 65vw;
     height: 65vh;
-    background: url('/assets/icons/i-still-standing.svg') no-repeat center center;
+    background: url("../assets/backgrounds/i-still-standing.jpg") no-repeat center center;
     background-size: contain;
     margin: 0; /* Espaçamento entre imagem e 404 */
     z-index: 1;
@@ -127,18 +127,25 @@ body {
 	}
 }
 
-@media (max-width: 768px) {
+@media (width < 965px) {
     .img-container {
-        width: 180px;
-        height: 180px;
+        width: 50vw; 
+        height: 50vh; 
+        margin-inline: auto;
     }
     
     .error-code {
-        font-size: 4rem;
-        margin-top: -30px;
+        font-size: 6vw; 
+        margin-top: -4vh;
     }
     
     .message {
-        font-size: 1.1rem;
+        font-size: 3vw; 
+        line-height: 1.5;
+    }
+    
+    .home-button {
+        padding: 2vw 5vw;
+        font-size: 3vw;
     }
 }
