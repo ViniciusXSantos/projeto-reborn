@@ -57,20 +57,21 @@ public class UsuarioController {
         return "redirect:/user";
     }
 
-    @GetMapping("/edit/{userId}")
-    /*public String editar(@PathVariable Long userId, Model model) {
+    // Busca apenas pelo ID    
+    /*@GetMapping("/edit/{userId}")
+    public String editar(@PathVariable Long userId, Model model) {
         model.addAttribute("user",  usuarioService.findById(userId)); 
         return "/user/cadastro";
     }*/
+    @GetMapping("/edit/{userId}")
     public ModelAndView buscarParaEditar(@PathVariable("userId") Long id) {
         var model = new ModelAndView();
         model.setViewName("cadastro-usuario");
         model.addObject("user", usuarioService.findById(id));
-
-
         return model;
     }
 
+    // Atualiza os dados pelo ID
     @PostMapping("/edit/{userId}")
     public String editarSave(@PathVariable("userId") Long userId, UsuarioDTO dto) {
         Usuario original = repository.findById(userId)
