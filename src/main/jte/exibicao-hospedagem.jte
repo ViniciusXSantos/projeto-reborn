@@ -40,8 +40,7 @@ content = @`
 
         <div class="acoes-hospedagem">
             <button class="btn-editar">Editar</button>
-            <button class="btn-deletar">Deletar</button>
-            <button class="btn-habilitar">Habilitar</button>
+            <a href="/hospedagens/deletar/${dto.getId()}" class="btn-deletar">Deletar</a>
         </div>
     </div>
         @endfor
@@ -50,6 +49,16 @@ content = @`
 
     </main>
     </div>
+
+    <script>
+        document.querySelectorAll('.btn-deletar').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (!confirm('Tem certeza que deseja deletar esta hospedagem?')) {
+                    e.preventDefault(); // Cancela se o usuário clicar em "Não"
+                }
+            });
+        });
+    </script>
 
     <!-- Script para ativar/desativar o menu -->
     <script>

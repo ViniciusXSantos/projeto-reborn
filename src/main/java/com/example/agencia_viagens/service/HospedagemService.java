@@ -51,4 +51,11 @@ public class HospedagemService {
                 .collect(Collectors.toList());
     }
 
+    public void deletarHospedagem(Long id) {
+        if (!repository.existsById(id)) {
+            throw new EntityNotFoundException("Hospedagem não encontrada com ID: " + id);
+        }
+        repository.deleteById(id);
+    }
+
 }
