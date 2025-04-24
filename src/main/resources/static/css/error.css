@@ -127,7 +127,7 @@ body {
 	}
 }
 
-@media (max-width: 768px) {
+@media (width < 965px) {
     .img-container {
         width: 50vw; 
         height: 50vh; 
