@@ -1,17 +1,144 @@
-.cartoes-usuario {
-    text-align: center;
+:root {
+    --bg-color: #6f9cb2;
+    --bg-color-hover: #1a82b6;
+    --btn-color: #245974;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
+    background-color: var(--bg-color);
 }
 
-.mensagem-erro {
-    padding: 5%;
-    border-radius: 50px;
-    width: 30%;
-    background-color: var(--cor-quaternaria);
+.container {
+    text-align: center;
+    position: relative;
+    padding: 20px;
 }
 
-.texto-erro {
-    font-size: 240%;
-    color: var(--cor-quaternaria);
+.img-container {
+    width: 65vw;
+    height: 65vh;
+    background: url('/assets/icons/i-still-standing.svg') no-repeat center center;
+    background-size: contain;
+    margin: 0; /* Espaçamento entre imagem e 404 */
+    z-index: 1;
+    animation: falling 2s ease-in-out 0s infinite alternate both;
+}
+
+.error-code {
+    font-size: 7rem;
+    color: #fff;
+    margin-top: -120px; /* Traz o 404 para mais perto da imagem */
+    letter-spacing: -5px;
+    z-index: 2;
+    position:relative;
+    text-shadow: 1px 2px 2px #424242;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #ffff;
+    margin: 5px 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px #424242;
+    position:relative;
+    z-index: 2;
+    
+}
+
+.mayday {
+    color: #fbff20;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--btn-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover {
+    background: var(--bg-color-hover);
+}
+
+@keyframes falling {
+	0% {
+		transform: translate(0);
+	}
+
+	10% {
+		transform: translate(-2px, -2px);
+	}
+
+	20% {
+		transform: translate(2px, -2px);
+	}
+
+	30% {
+		transform: translate(-2px, 2px);
+	}
+
+	40% {
+		transform: translate(2px, 2px);
+	}
+
+	50% {
+		transform: translate(-2px, -2px);
+	}
+
+	60% {
+		transform: translate(2px, -2px);
+	}
+
+	70% {
+		transform: translate(-2px, 2px);
+	}
+
+	80% {
+		transform: translate(-2px, -2px);
+	}
+
+	90% {
+		transform: translate(2px, -2px);
+	}
+
+	100% {
+		transform: translate(0);
+	}
+}
+
+@media (max-width: 768px) {
+    .img-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .error-code {
+        font-size: 4rem;
+        margin-top: -30px;
+    }
+    
+    .message {
+        font-size: 1.1rem;
+    }
 }
