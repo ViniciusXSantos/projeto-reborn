@@ -1,76 +1,40 @@
 package com.example.agencia_viagens.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "cliente")
-@ToString(callSuper = true, exclude = {"telefones", "enderecos"})
-@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-public class Cliente extends Pessoa {
-
+@Table(name = "clientes", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "email") // Apenas email é único
+})
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente", nullable = false)
-    @EqualsAndHashCode.Include
-    private Long idCliente;
+    private Long id;
 
-    @Column(unique = true)
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false, unique = true) // Email único
     private String email;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Telefone> telefones = new ArrayList<>();
+    @Column(nullable = false)
+    private String telefone1;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Endereco> enderecos = new ArrayList<>();
+    private String telefone2;
 
-    @Override
-    public String obterDescricao() {
-        return "Cliente ID: " + idCliente;
-    }
+    @Column(nullable = false)
+    private String tipoTelefone1;
 
-    public void adicionarTelefone(Telefone telefone) {
-        if (telefone != null && !telefones.contains(telefone)) {
-            telefone.setCliente(this);
-            telefone.setUsuario(null);
-            telefones.add(telefone);
-        }
-    }
+    private String tipoTelefone2;
 
-    public void removerTelefone(Telefone telefone) {
-        if (telefone != null) {
-            telefones.remove(telefone);
-            telefone.setCliente(null);
-        }
-    }
-
-    public void adicionarEndereco(Endereco endereco) {
-        if (endereco != null && !enderecos.contains(endereco)) {
-            endereco.setCliente(this);
-            enderecos.add(endereco);
-        }
-    }
-
-    public void removerEndereco(Endereco endereco) {
-        if (endereco != null) {
-            enderecos.remove(endereco);
-            endereco.setCliente(null);
-        }
-    }
-
-    public Usuario orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
+    // Endereço
+    private String cep;
+    private String estado;
+    private String cidade;
+    private String bairro;
+    private String logradouro;
+    private String numero;
+    private String complemento;
 }
