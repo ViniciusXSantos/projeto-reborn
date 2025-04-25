@@ -1,28 +1,42 @@
 package com.example.agencia_viagens.model;
 
 import java.time.LocalDate;
-
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "pacote")
 public class Pacote {
+   
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
 
-    @NotEmpty
+    @Column(nullable = false)
     private String viagem;
 
-    @NotNull
+    @Column( nullable = true)
     private String descricao;
 
-    @NotNull
+    @Column(nullable = false)
     private LocalDate dataPartida;
 
-    @NotNull
+   @Column(nullable = false)
     private LocalDate dataChegada;
+
+   
+    public Pacote(String viagem,String descricao,LocalDate dataPartida, LocalDate dataChegada) {
+        this.viagem =viagem;
+        this.descricao=descricao;
+        this.dataPartida=dataPartida;
+        this.dataChegada=dataChegada;
     
+    }
+
+    public Pacote() {
+    }
+
+    
+ 
 }
