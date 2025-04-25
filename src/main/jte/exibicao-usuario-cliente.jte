@@ -1,5 +1,8 @@
+@import com.example.agencia_viagens.dto.ClienteDTO
 @import com.example.agencia_viagens.dto.Page
+@import java.util.List
 
+@param List<ClienteDTO> clientes
 @template.layout.main(
     page = new Page("Gerenciamento de Cliente"),
     content = @`
@@ -17,16 +20,11 @@
 <div class="formulario-container">
 <!-- Barra de Pesquisa e Botão Adicionar -->
 <section class="secao-pesquisa">
-    <form action="#" method="get" class="formulario-pesquisa">
-        <div class="entrada-pesquisa">
-            <img src="/assets/icons/botao-de-pesquisar.svg" alt="Ícone de Pesquisa" class="icone-pesquisa">
-            <input type="text" placeholder="Pesquise" name="search"
-                onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
-        </div>
-    </form>
     <a class="ancora-add-butao" href="/clientes/novo"><button class="add-butao">+</button></a>
 </section>
 
+    @if(clientes!=null)
+    @for(ClienteDTO dto:clientes)
 <!-- Cards dos Funcionários -->
 <section class="cartoes-usuario">
     <article class="cartao">
@@ -34,8 +32,10 @@
         
         <div class="cartao-corpo">
             <div class="descricao">
-                <h2>Nome do Cliente</h2>
-                <p>Descrição</p>
+                <h2>Nome: ${dto.getNome()}</h2>
+                <p>Email: ${dto.getEmail()}</p>
+                <p>Telefone 1: ${dto.getTelefone1()} (${dto.getTipoTelefone1()})</p>
+                <p>Telefone 1: ${dto.getTelefone2()} (${dto.getTipoTelefone2()})</p>
             </div>
             
             <button class="botao-editar">
@@ -50,6 +50,11 @@
     </article>
     <!-- Repita a estrutura do card para outros clientes -->
 </section>
+
+    @endfor
+
+    @endif
+
 </div>
 <!-- Script para ativar/desativar o menu -->
 <script>
