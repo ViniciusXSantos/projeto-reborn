@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.agencia_viagens.model.Pacote;
 import com.example.agencia_viagens.dto.PacoteDTO;
 import com.example.agencia_viagens.service.PacoteService;
+
 
 @Controller
 @RequestMapping("/pacotes")
@@ -31,4 +33,9 @@ public class PacoteController {
     public String cadastroPacote(){
         return "forms-pacote";
     }
+   
+
+
+
+
 }
