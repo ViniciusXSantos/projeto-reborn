@@ -61,13 +61,7 @@
             ${content}
         </main>
     </div>
-
-    <script>
-        document.getElementById("alterar-menu").addEventListener("click", function () {
-            document.getElementById("barra-lateral").classList.toggle("active");
-        });
-    </script>
-
+3
 </body>
 
 </html>
