@@ -1,6 +1,5 @@
 package com.example.agencia_viagens.config;
 
-
 import com.example.agencia_viagens.service.impl.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -60,5 +59,7 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+  
 
 }

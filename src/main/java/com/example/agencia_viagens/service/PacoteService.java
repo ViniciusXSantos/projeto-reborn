@@ -1,20 +1,24 @@
 package com.example.agencia_viagens.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.example.agencia_viagens.dto.PacoteDTO;
 
-import lombok.RequiredArgsConstructor;
+@Repository
+public interface PacoteService {
 
-@Service
-@RequiredArgsConstructor
-public class PacoteService {
-
-    public List<PacoteDTO> buscarTodos() {
+    /*public List<PacoteDTO> buscarTodos() {
         return List.of(new PacoteDTO()).stream().collect(Collectors.toList());
-    }
+    }*/
+    public List<PacoteDTO> buscarTodos();
+
+    public void salvar(PacoteDTO pacoteDTO);
+
+    public Object buscarPorId(Long id);
     
+    PacoteDTO findOne(Long id);
+
+    public void remove(Long id);
 }
