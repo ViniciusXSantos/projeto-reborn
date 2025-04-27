@@ -1,6 +1,7 @@
 package com.example.agencia_viagens.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 
@@ -9,7 +10,6 @@ import lombok.Data;
 @Table(name = "usuario")
 public class Usuario {
 
-   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
@@ -17,9 +17,11 @@ public class Usuario {
     @Column(nullable = false)
     private String nome;
 
+    @Email
     @Column(unique = true, nullable = true)
     private String email;
 
+    
     @Column(nullable = false)
     private String senha;
 
@@ -34,6 +36,4 @@ public class Usuario {
     public Usuario() {
     }
 
-    
- 
 }

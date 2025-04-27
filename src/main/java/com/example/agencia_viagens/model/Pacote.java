@@ -1,26 +1,38 @@
 package com.example.agencia_viagens.model;
 
 import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-@Data
 @Entity
+@Data
 @Table(name = "pacote")
 public class Pacote {
-   
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_pacote")
+    private Long idPacote;
+
+    //@Lob
+    //private byte[] imagem;
+
+    @NotEmpty
     @NotBlank(message = "O título do pacote é obrigatório.")
     @Column(nullable = false)
-    private String viagem;
+    private String titulo;
 
     @Column(nullable = true)
     private String descricao;
-
 
     @NotNull(message = "A data de partida é obrigatória.")
     @FutureOrPresent(message = "A data de partida deve ser hoje ou no futuro.")
@@ -32,28 +44,9 @@ public class Pacote {
     @Column(nullable = false)
     private LocalDate dataChegada;
 
-    @NotNull(message = "O valor é obrigatório.")
-    @Column(nullable = false)
-    private double valor;
-
-
-    @NotNull(message = "O pacote deve estar associado a uma hospedagem.")
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "hospedagem_id")
-    private Hospedagem hospedagem;
-   
-    public Pacote(String viagem,String descricao,LocalDate dataPartida, LocalDate dataChegada,double valor) {
-        this.viagem =viagem;
-        this.descricao=descricao;
-        this.dataPartida=dataPartida;
-        this.dataChegada=dataChegada;
-        this.valor=valor;
-    
-    }
-
-    public Pacote() {
-    }
-
-    
- 
+    private String estado;
+    private String hospedagem;
+    private String passeios;
+    private String translado;
+    private String valor;
 }
