@@ -55,4 +55,12 @@ public class ClienteService {
         BeanUtils.copyProperties(cliente, dto);
         return dto;
     }
+
+    public void deletar(Long id) {
+        if (!clienteRepository.existsById(id)) {
+            throw new RuntimeException("Cliente não encontrado");
+        }
+        clienteRepository.deleteById(id);
+    }
+
 }

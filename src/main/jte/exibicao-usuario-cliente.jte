@@ -42,7 +42,7 @@
                 <img src="/assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
                 Editar
             </button>
-            <button class="botao-deletar">
+            <button class="botao-deletar" onclick="confirmarDelecao(${dto.getId()})">
                 <img src="/assets/icons/botao-deletar.svg" alt="Deletar" class="icone-botao">
                 Deletar
             </button>
@@ -54,6 +54,19 @@
     @endfor
 
     @endif
+
+    <script>
+        function confirmarDelecao(id) {
+            if (confirm('Tem certeza que deseja deletar este cliente?')) {
+                window.location.href = '/clientes/delete/' + id;
+            }
+        }
+
+        // Seu código existente...
+        document.getElementById("alterar-menu").addEventListener("click", function () {
+            document.getElementById("barra-lateral").classList.toggle("active");
+        });
+    </script>
 
 </div>
 <!-- Script para ativar/desativar o menu -->

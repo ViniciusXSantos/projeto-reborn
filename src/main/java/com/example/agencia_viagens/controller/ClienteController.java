@@ -64,4 +64,12 @@ public class ClienteController {
             return "cadastro-usuarios-cliente";
         }
     }
+
+    // Deleta um cliente
+    @GetMapping("/delete/{id}")
+    public String deletarCliente(@PathVariable Long id) {
+        clienteService.deletar(id);
+        return "redirect:/clientes?deleted";
+    }
+
 }
