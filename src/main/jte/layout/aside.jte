@@ -1,5 +1,5 @@
 <div class="logo">
-    <a href="/home"><img src="/assets/backgrounds/logo-innova-tour.png" alt="Innova Turismo"></a>
+    <img src="/assets/backgrounds/logo-innova-tour.png" alt="Innova Turismo">
 </div>
 <nav>
     <ul>

@@ -7,6 +7,8 @@
 page = new Page("Gerenciamento de Hospedagem"),
 content = @`
 
+    <link rel="stylesheet" href="/css/exibicao-hospedagem.css">
+
     <section class="secao-pesquisa">
         <a class="add-butao ancora-add-butao" href="/hospedagens/cadastro"> + </a>
     </section>
@@ -15,7 +17,7 @@ content = @`
         @for(HospedagemDTO dto:hospedagens)
     <div class="bloco-exibicao">
         <div class="upload-foto">
-            <p>Por assets aqui</p>
+            <p>Upload de Foto</p>
         </div>
 
         <div class="info-hospedagem">
@@ -50,4 +52,12 @@ content = @`
             });
         });
     </script>
+
+    <!-- Script para ativar/desativar o menu -->
+    <script>
+        document.getElementById("alterar-menu").addEventListener("click", function () {
+            document.getElementById("barra-lateral").classList.toggle("active");
+        });
+    </script>
+
 `)
