@@ -3,35 +3,29 @@
 @import java.util.List
 
 @param List<ClienteDTO> clientes
-    @template.layout.main(
-    page = new Page("Gerenciamento de Cliente"),
-    content = @`
 
-    <link rel="stylesheet" href="/css/exibicao-cadastro-cliente.css">
-    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">
-
-    <style>
-        .botao-editar,
-        .botao-deletar {
-            text-align: center;
-        }
-    </style>
+@template.layout.main(
+page = new Page("Gerenciamento de Cliente"),
+content = @`
+   
 
     <div class="formulario-container">
         <!-- Barra de Pesquisa e Botão Adicionar -->
         <section class="secao-pesquisa">
-            <a class="ancora-add-butao" href="/clientes/novo"><button class="add-butao">+</button></a>
+            <a href="/clientes/novo" class="btn-cadastro">
+                <i class='bx bx-plus'></i>
+                <span class="texto">Cadastrar Novo</span>
+            </a>
         </section>
 
-        <!-- Cards dos Funcionários -->
+        <!-- Cards dos Clientes -->
         <section class="cartoes-usuario">
-
-            @if(clientes!=null)
-                @for(ClienteDTO dto:clientes)
-
+            @if(clientes != null)
+                @for(ClienteDTO dto : clientes)
                     <article class="cartao">
-                        <div class="foto"><img src="/assets/backgrounds/perfil-equipe.png" alt="Foto do Funcionário"></div>
-
+                        <div class="foto">
+                            <i class='bx bxs-user-circle'></i>
+                        </div>
                         <div class="cartao-corpo">
                             <div class="descricao">
                                 <h2>Nome: ${dto.getNome()}</h2>
@@ -39,46 +33,20 @@
                                 <p>Telefone 1: ${dto.getTelefone1()} (${dto.getTipoTelefone1()})</p>
                                 <p>Telefone 2: ${dto.getTelefone2()} (${dto.getTipoTelefone2()})</p>
                             </div>
-
-                            <a class="ancora-add-butao" href="/clientes/edit/${dto.getId()}">
-                                <button class="botao-editar">
-                                    <img src="/assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
+                            <div class="botoes">
+                                <a href="/clientes/edit/${dto.getId()}" class="botao-editar">
+                                    <i class='bx bxs-edit-alt' ></i>
                                     Editar
-                                </button>
-                            </a>
-                            <a class="ancora-add-butao" href="/clientes/remover/${dto.getId()}">
-                                <button class="botao-deletar" onclick="confirmarDelecao(${dto.getId()})">
-                                    <img src="/assets/icons/botao-deletar.svg" alt="Deletar" class="icone-botao">
+                                </a>
+                                <a href="/clientes/remover/${dto.getId()}" class="botao-deletar" onclick="confirmarDelecao(${dto.getId()})">
+                                    <i class='bx bx-x'></i>
                                     Deletar
-                                </button>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </article>
-
                 @endfor
             @endif
-
-            <!-- Repita a estrutura do card para outros clientes -->
         </section>
-
-        <script>
-            function confirmarDelecao(id) {
-                if (confirm('Tem certeza que deseja deletar este cliente?')) {
-                    window.location.href = '/clientes/delete/' + id;
-                }
-            }
-
-            // Seu código existente...
-            document.getElementById("alterar-menu").addEventListener("click", function () {
-                document.getElementById("barra-lateral").classList.toggle("active");
-            });
-        </script>
-
     </div>
-    <!-- Script para ativar/desativar o menu -->
-    <script>
-        document.getElementById("alterar-menu").addEventListener("click", function () {
-            document.getElementById("barra-lateral").classList.toggle("active");
-        });
-    </script>
-    `)
+`)

@@ -1,83 +1,95 @@
 @template.layout.main(content = @`
 
-<link rel="stylesheet" href="/css/cadastro-hospedagem.css">
 
-    <section class="formulario-conteiner">
-        <!-- Mensagens de feedback -->
 
-        <!-- Campos do Formulário -->
-        <form action="/hospedagens/cadastro" method="post">
-            <div class="campos-formulario">
-                <fieldset>
-                    <legend>Dados da Hospedagem</legend>
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input">
-                            <input type="text" name="nome" placeholder="Nome" class="input-sem-ponta" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="email" name="email" placeholder="E-mail" class="input-sem-ponta" required>
-                        </div>
-                    </div>
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input">
-                            <div class="lado-mesclado">
-                                <input type="tel" name="telefone1" placeholder="Telefone" class="telefone" required>
-                                <select name="tipoTelefone1" class="telefone-selecao" required>
-                                    <option value="" disabled selected>Selecione...</option>
-                                    <option value="Phone">Phone</option>
-                                    <option value="Telegram">Telegram</option>
-                                    <option value="WhatsApp">WhatsApp</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="caixa-input">
-                            <div class="lado-mesclado">
-                                <input type="tel" name="telefone2" placeholder="Telefone" class="telefone">
-                                <select name="tipoTelefone2" class="telefone-selecao">
-                                    <option value="" disabled selected>Selecione...</option>
-                                    <option value="Phone">Phone</option>
-                                    <option value="Telegram">Telegram</option>
-                                    <option value="WhatsApp">WhatsApp</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
+<section class="formulario-conteiner">
+    <!-- Mensagens de feedback -->
 
-                <fieldset>
-                    <legend>Endereço da Hospedagem</legend>
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input">
-                            <input type="text" name="pais" placeholder="País" class="input-sem-ponta" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="text" name="estado" placeholder="Estado" class="input-sem-ponta" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="text" name="cidade" placeholder="Cidade" class="input-sem-ponta" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="text" name="bairro" placeholder="Bairro" class="input-sem-ponta" required>
-                        </div>
-                    </div>
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input">
-                            <input type="text" name="logradouro" placeholder="Logradouro" class="input-sem-ponta" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="text" name="numero" placeholder="Número" class="input-sem-ponta" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="text" name="complemento" placeholder="Complemento" class="input-sem-ponta">
-                        </div>
-                    </div>
-                </fieldset>
+    <!-- Campos do Formulário -->
+    <form action="/hospedagens/cadastro" method="post" class="formulario">
+        <fieldset>
+            <legend>Dados da Hospedagem</legend>
+            <div class="grid">
+                <div class="campo">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                </div>
+                <div class="campo">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" placeholder="E-mail" required>
+                </div>
             </div>
+            <div class="grid">
+                <div class="campo">
+                    <label for="telefone1">Telefone *</label>
+                    <input type="tel" id="telefone1" name="telefone1" placeholder="Telefone" class="telefone" required>
+                </div>
+                <div class="campo">
+                    <label for="tipoTelefone1">Tipo do Telefone *</label>
+                    <select id="tipoTelefone1" name="tipoTelefone1" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="campo">
+                    <label for="telefone2">Telefone Alternativo</label>
+                    <input type="tel" id="telefone2" name="telefone2" placeholder="Telefone" class="telefone">
+                </div>
+                <div class="campo">
+                    <label for="tipoTelefone2">Tipo do Telefone Alternativo</label>
+                    <select id="tipoTelefone2" name="tipoTelefone2">
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
 
-            <!-- Botão de Salvar -->
-            <button type="submit" class="btn-salvar">
-                <img src="../assets/icons/icone-botao-de-salvar.svg" class="icone">Salvar
-            </button>
-        </form>
-    </section>
+        <fieldset>
+            <legend>Endereço da Hospedagem</legend>
+            <div class="grid">
+                <div class="campo">
+                    <label for="pais">País *</label>
+                    <input type="text" id="pais" name="pais" placeholder="País" required>
+                </div>
+                <div class="campo">
+                    <label for="estado">Estado *</label>
+                    <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="campo">
+                    <label for="cidade">Cidade *</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                </div>
+                <div class="campo">
+                    <label for="bairro">Bairro *</label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="campo">
+                    <label for="logradouro">Logradouro *</label>
+                    <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" required>
+                </div>
+                <div class="campo">
+                    <label for="numero">Número *</label>
+                    <input type="text" id="numero" name="numero" placeholder="Número" required>
+                </div>
+                <div class="campo">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" name="complemento" placeholder="Complemento">
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn-salvar"><i class='bx bxs-save'></i> Salvar</button>
+    </form>
+</section>
 `)

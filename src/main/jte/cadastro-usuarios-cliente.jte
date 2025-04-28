@@ -6,80 +6,92 @@
 @template.layout.main(
 page = new Page("Cadastro de Cliente"),
 content = @`
-    <link rel="stylesheet" href="/css/cadastro-usuarios-cliente.css">
+    
 
     <!-- Formulário -->
     <section class="formulario-conteiner">
-
         !{var formAction = cli.getId() != null ? "/clientes/edit/" + cli.getId() : "/clientes/novo";}
-        <form action="${formAction}" method="post">
-            <div class="campos-formulario">
-                <fieldset>
-                    <legend>Dados Pessoais</legend>
-                    <input type="hidden" name="id" value="${cli.getId()}">
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input">
-                            <input type="text" name="nome" placeholder="Nome *" class="input-sem-ponta" value="${cli.getNome()}" required>
-                        </div>
-                        <div class="caixa-input">
-                            <input type="email" name="email" placeholder="E-mail *" class="input-sem-ponta" value="${cli.getEmail()}" required>
-                        </div>
+        <form action="${formAction}" method="post" class="formulario">
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <input type="hidden" name="id" value="${cli.getId()}">
+                <div class="grid">
+                    <div class="campo">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome" value="${cli.getNome()}" required>
                     </div>
+                    <div class="campo">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" placeholder="E-mail" value="${cli.getEmail()}" required>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="telefone1">Telefone Principal *</label>
+                        <input type="tel" id="telefone1" name="telefone1" placeholder="Telefone" value="${cli.getTelefone1()}" required>
+                    </div>
+                    <div class="campo">
+                        <label for="tipoTelefone1">Tipo do Telefone Principal</label>
+                        <select id="tipoTelefone1" name="tipoTelefone1" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Telegram">Telegram</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="telefone2">Telefone Alternativo</label>
+                        <input type="tel" id="telefone2" name="telefone2" placeholder="Telefone" value="${cli.getTelefone2()}">
+                    </div>
+                    <div class="campo">
+                        <label for="tipoTelefone2">Tipo do Telefone Alternativo</label>
+                        <select id="tipoTelefone2" name="tipoTelefone2">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Telegram">Telegram</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
 
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input">
-                            <div class="lado-mesclado">
-                                <input type="tel" name="telefone1" placeholder="Telefone *" class="telefone" value="${cli.getTelefone1()}" required>
-                                <select name="tipoTelefone1" class="telefone-selecao" required>
-                                    <option value="" disabled selected>Selecione...</option>
-                                    <option value="telefone" name="telefone" selected="${"telefone".equals("telefone")}">Phone</option>
-                                    <option value="telegram" name="telegram" selected="${"Telegram".equals("telegram")}">Telegram</option>
-                                    <option value="whatsapp" name="whatsapp" selected="${"WhatsApp".equals("whatsapp")}">WhatsApp</option>
-                                </select>
-                            </div>
-                        </div>
+            <fieldset>
+                <legend>Endereço</legend>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="CEP" value="${cli.getCep()}">
+                    </div>
+                    <div class="campo">
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" name="estado" placeholder="Estado" value="${cli.getEstado()}">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="${cli.getCidade()}">
+                    </div>
+                    <div class="campo">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="${cli.getBairro()}">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" value="${cli.getLogradouro()}">
+                    </div>
+                    <div class="campo">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Número" value="${cli.getNumero()}">
+                    </div>
+                </div>
+            </fieldset>
 
-                        <div class="caixa-input">
-                            <div class="lado-mesclado">
-                                <input type="tel" name="telefone2" placeholder="Telefone" class="telefone" value="${cli.getTelefone2()}">
-                                <select name="tipoTelefone2" class="telefone-selecao" required>
-                                    <option value="" disabled selected>Selecione...</option>
-                                    <option value="telefone" name="telefone2" selected="${"telefone".equals("telefone")}">Phone</option>
-                                    <option value="telegram" name="telegram2" selected="${"Telegram".equals("telegram")}">Telegram</option>
-                                    <option value="whatsapp" name="whatsapp2" selected="${"WhatsApp".equals("whatsapp")}">WhatsApp</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Endereço</legend>
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input"><input type="text" name="cep" placeholder="CEP" class="input-sem-ponta" value="${cli.getCep()}"></div>
-                        <div class="caixa-input"><input type="text" name="estado" placeholder="Estado" class="input-sem-ponta" value="${cli.getEstado()}"></div>
-                        <div class="caixa-input"><input type="text" name="cidade" placeholder="Cidade" class="input-sem-ponta" value="${cli.getCidade()}"></div>
-                    </div>
-                    <div class="caixa lado-a-lado">
-                        <div class="caixa-input"><input type="text" name="bairro" placeholder="Bairro" class="input-sem-ponta" value="${cli.getBairro()}"></div>
-                        <div class="caixa-input"><input type="text" name="logradouro" placeholder="Logradouro" class="input-sem-ponta" value="${cli.getLogradouro()}"></div>
-                        <div class="caixa-input"><input type="text" name="numero" placeholder="Número" class="input-sem-ponta" value="${cli.getNumero()}"></div>
-                    </div>
-                    <div class="caixa">
-                        <div class="caixa-input"><input type="text" name="complemento" placeholder="Complemento" class="input-sem-ponta" value="${cli.getComplemento()}"></div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <button type="submit" class="btn-salvar">
-                <img src="/assets/icons/icone-botao-de-salvar.svg" class="icone">Salvar
-            </button>
+            <button type="submit" class="btn-salvar"><i class='bx bxs-save'></i> Salvar</button>
         </form>
     </section>
-
-    <script>
-        document.getElementById("alterar-menu").addEventListener("click", function () {
-            document.getElementById("barra-lateral").classList.toggle("active");
-        });
-    </script>
 `)

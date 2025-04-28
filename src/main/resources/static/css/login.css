@@ -29,7 +29,7 @@ body::before {
     position: relative;
     width: 850px;
     height: 550px;
-    background: var(--cor-terciaria);
+    background: var(--light);
     border-radius: 30px;
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -41,10 +41,10 @@ body::before {
     right: 0;
     width: 50%;
     height: 100%;
-    background: var(--cor-terciaria);
+    background: var(--light);
     display: flex;
     align-items: center;
-    color: #424242;
+    color: var(--dark);
     text-align: center;
     padding: 40px;
     z-index: 2;
@@ -73,17 +73,17 @@ form {
 .caixa-de-input input {
     width: 100%;
     padding: 13px 50px 13px 20px;
-    background: var(--cor-secundaria);
+    background: var(--grey);
     border-radius: 8px;
     border: none;
     outline: none;
     font-size: 16px;
-    color: #424242;
+    color: var(--dark);
     font-weight: 500;
 }
 
 .caixa-de-input input::placeholder {
-    color: #888;
+    color: var(--dark-grey);
     font-weight: 400;
 }
 
@@ -93,18 +93,18 @@ form {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #888;
+    color: var(--dark-grey);
 }
 
 .btn {
     width: 100%;
     height: 48px;
-    background: var(--cor-quaternaria);
+    background: var(--red);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: none;
     font-size: 16px;
-    color: white;
+    color: var(--light);
     font-weight: 600;
     cursor: pointer;
 }
@@ -121,7 +121,7 @@ form {
     left: -250%;
     width: 300%;
     height: 100%;
-    background: var(--cor-primaria);
+    background: var(--blue);
     border-radius: 150px;
     z-index: 4;
     transition: 2s ease-in-out;
@@ -135,7 +135,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--light);
     z-index: 4;
     transition: 0.6s ease-in-out;
 }
@@ -153,7 +153,7 @@ form {
     width: 160px;
     height: 46px;
     background: transparent;
-    border: 2px solid var(--cor-primaria);
+    border: 2px solid var(--blue);
     box-shadow: none;
 }
 
@@ -169,7 +169,6 @@ form {
         bottom: 0;
     }
 
-
     .toggle-box::before {
         left: 0;
         width: 100%;
@@ -177,7 +176,6 @@ form {
         top: -270%;
         border-radius: 20vw;
     }
-
 
     .toggle-box h1 {
         font-size: 50px;
@@ -196,7 +194,6 @@ form {
         left: 0;
         top: -30%;
     }
-
 }
 
 @media screen and (max-width: 650px) {

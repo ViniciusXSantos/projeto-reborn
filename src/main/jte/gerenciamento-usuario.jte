@@ -7,49 +7,42 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Funcionário"),
     content = @`
+    <link rel="stylesheet" href="/css/gerenciamento-usuario.css">
 
-    <link rel="stylesheet" href="/css/gerenciamento-pessoa.css">
-    
     <div class="formulario-container">
+        <!-- Barra de Pesquisa e Botão Adicionar -->
         <section class="secao-pesquisa">
-
-            <!--
-            <form action="#" method="get" class="formulario-pesquisa">
-                <div class="entrada-pesquisa">
-                    <img src="/assets/icons/botao-de-pesquisar.svg" alt="Ícone de Pesquisa" class="icone-pesquisa">
-                    <input type="text" placeholder="Pesquise" name="search" onkeydown="if(event.key === 'Enter'){ this.form.submit(); }">
-                </div>
-            </form>
-            -->
-
-            <a class="ancora-add-butao" href="/user/cadastro"><button class="add-butao">+</button></a>
+            <a href="/user/cadastro" class="btn-cadastro">
+                <i class='bx bx-plus'></i>
+                <span class="texto">Cadastrar Novo</span>
+            </a>
         </section>
 
+        <!-- Cards dos Usuários -->
         <section class="cartoes-usuario">
-            @if(usuarios!=null)
-
-                @for(UsuarioDTO dto:usuarios)
-
-                    <div class="cartao">
-                        <div class="foto"><img src="/assets/backgrounds/perfil-equipe.png" alt="Foto do usuário"></div>
-
+            @if(usuarios != null)
+                @for(UsuarioDTO dto : usuarios)
+                    <article class="cartao">
+                        <div class="foto">
+                            <i class='bx bxs-user-badge'></i>
+                        </div>
                         <div class="cartao-corpo">
                             <div class="descricao">
                                 <h2>${dto.getNome()}</h2>
                                 <p>${dto.getEmail()}</p>
                             </div>
-
-                            <br>
-                            <a class="ancora-add-butao" href="/user/edit/${dto.getId()}"><button class="edita">Editar</button></a>
-                            <a class="ancora-add-butao" href="/user/remover/${dto.getId()}"> <button class="deleta">Deletar</button></a>
+                            <div class="botoes">
+                                <a href="/user/edit/${dto.getId()}" class="btn-editar">
+                                    <i class='bx bxs-edit-alt'></i> Editar
+                                </a>
+                                <a href="/user/remover/${dto.getId()}" class="btn-deletar">
+                                    <i class='bx bxs-trash'></i> Deletar
+                                </a>
+                            </div>
                         </div>
-                    </div>
-
+                    </article>
                 @endfor
-
             @endif
-
         </section>
     </div>
-
-`)   
+`)

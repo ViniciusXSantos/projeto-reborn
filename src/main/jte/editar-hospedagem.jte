@@ -6,41 +6,51 @@
 page = new Page("Editar Hospedagem"),
 content = @`
 
-    <link rel="stylesheet" href="/css/editar-hospedagem.css">
 
-    <form action="/hospedagens/editar/${hospedagem.getId()}" method="post">
-        <!-- Campos existentes -->
-        <div class="campo-form">
-            <label>Nome:</label>
-            <input type="text" name="nome" value="${hospedagem.getNome()}" required>
-        </div>
 
-        <div class="campo-form">
-            <label>Telefone 1:</label>
-            <input type="text" name="telefone1" value="${hospedagem.getTelefone1()}">
-        </div>
+    <section class="formulario-conteiner">
+        <form action="/hospedagens/editar/${hospedagem.getId()}" method="post" class="formulario">
+            <fieldset>
+                <legend>Dados da Hospedagem</legend>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" value="${hospedagem.getNome()}" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefone1">Telefone 1 *</label>
+                        <input type="text" id="telefone1" name="telefone1" value="${hospedagem.getTelefone1()}" required>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="telefone2">Telefone 2 (opcional)</label>
+                        <input type="text" id="telefone2" name="telefone2" value="${hospedagem.getTelefone2()}">
+                    </div>
+                </div>
+            </fieldset>
 
-        <!-- Novos campos editáveis -->
-        <div class="campo-form">
-            <label>Telefone 2 (opcional):</label>
-            <input type="text" name="telefone2" value="${hospedagem.getTelefone2()}">
-        </div>
+            <fieldset>
+                <legend>Endereço da Hospedagem</legend>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="logradouro">Logradouro *</label>
+                        <input type="text" id="logradouro" name="logradouro" value="${hospedagem.getLogradouro()}" required>
+                    </div>
+                    <div class="campo">
+                        <label for="numero">Número *</label>
+                        <input type="text" id="numero" name="numero" value="${hospedagem.getNumero()}" required>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="campo">
+                        <label for="cidade">Cidade *</label>
+                        <input type="text" id="cidade" name="cidade" value="${hospedagem.getCidade()}" required>
+                    </div>
+                </div>
+            </fieldset>
 
-        <div class="campo-form">
-            <label>Logradouro:</label>
-            <input type="text" name="logradouro" value="${hospedagem.getLogradouro()}">
-        </div>
-
-        <div class="campo-form">
-            <label>Número:</label>
-            <input type="text" name="numero" value="${hospedagem.getNumero()}">
-        </div>
-
-        <div class="campo-form">
-            <label>Cidade:</label>
-            <input type="text" name="cidade" value="${hospedagem.getCidade()}">
-        </div>
-
-        <button type="submit" class="btn-salvar">Salvar Alterações</button>
-    </form>
+            <button type="submit" class="btn-salvar"><i class='bx bxs-save'></i> Salvar Alterações</button>
+        </form>
+    </section>
 `)

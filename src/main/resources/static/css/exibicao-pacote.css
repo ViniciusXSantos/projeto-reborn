@@ -1,44 +1,124 @@
 .cards-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: var(--light);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.img-viagem img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.descricao {
+    padding: 15px;
+    text-align: center;
+}
+
+.descricao h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.descricao p {
+    font-size: 1rem;
+    color: var(--dark-grey);
+}
+
+.dados-viagem {
+    padding: 15px;
+    background: var(--grey);
+    text-align: center;
+}
+
+.dados-viagem h3 {
+    font-size: 1rem;
+    color: var(--dark);
+    margin: 5px 0;
+}
+
+.botoes {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    width: 80%;
-    margin-top: 1rem; /* Adiciona espaço entre a barra de pesquisa e os cards */
+    justify-content: space-around;
+    padding: 15px;
+    background: var(--light);
+}
+
+.botoes button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .botao-editar {
-    background-color: var(--cor-primaria);
-    color: var(--cor-secundaria);
-    flex: 1;
+    background: var(--blue);
+    color: var(--light);
 }
 
 .botao-editar:hover {
-    background-color: var(--cor-quaternaria);
+    background: var(--light-blue);
 }
 
 .botao-deletar {
-    background-color: var(--cor-primaria); /* Cor primária por padrão */
-    color: var(--cor-terciaria);
-    flex: 1;
+    background: var(--red);
+    color: var(--light);
 }
 
 .botao-deletar:hover {
-    background-color: var(--cor-quaternaria);
+    background: #ff6b5a;
 }
 
 .botao-ativo {
-    background-color: var(--cor-primaria);
-    color: var(--cor-secundaria);
-    flex: 1;
+    background: var(--yellow);
+    color: var(--dark);
 }
 
-.botao-ativo.ativo {
-    background-color: var(--cor-primaria);
+.botao-ativo:hover {
+    background: var(--light-yellow);
 }
 
-.botao-ativo.inativo {
-    background-color: var(--cor-quaternaria);
-    color: var(--cor-terciaria);
+.secao-pesquisa {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
 }
 
+.btn-cadastro {
+    background: var(--blue);
+    color: var(--light);
+    border: none;
+    border-radius: 36px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition:0.3s ease;
+}
+
+.btn-cadastro:hover {
+    background: var(--light-blue);
+}
