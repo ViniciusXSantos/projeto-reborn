@@ -4,9 +4,7 @@ import com.example.agencia_viagens.dto.PacoteDTO;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface PacoteService {
 
     public List<PacoteDTO> buscarTodos();

@@ -1,20 +1,15 @@
 package com.example.agencia_viagens.service.impl;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.example.agencia_viagens.dto.PacoteDTO;
 import com.example.agencia_viagens.mapping.PacoteMapper;
 import com.example.agencia_viagens.model.Pacote;
-import com.example.agencia_viagens.model.Usuario;
 import com.example.agencia_viagens.repository.PacoteRepository;
 import com.example.agencia_viagens.service.PacoteService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import lombok.RequiredArgsConstructor;
 
 @Service
