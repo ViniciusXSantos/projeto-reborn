@@ -1,7 +1,11 @@
 package com.example.agencia_viagens.controller;
 
 import com.example.agencia_viagens.dto.ClienteDTO;
+import com.example.agencia_viagens.dto.PacoteDTO;
+import com.example.agencia_viagens.model.Pacote;
 import com.example.agencia_viagens.service.ClienteService;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,12 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+import com.example.agencia_viagens.model.Cliente;
+import com.example.agencia_viagens.repository.ClienteRepository;
+
 @Controller
 @RequestMapping("/clientes")
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     // Lista todos os clientes
     @GetMapping
@@ -44,15 +54,22 @@ public class ClienteController {
     }
 
     // Exibe formulário de edição
-    @GetMapping("/edit/{id}")
+    /*@GetMapping("/edit/{id}")
     public ModelAndView editarCliente(@PathVariable Long id) {
         ModelAndView model = new ModelAndView("cadastro-usuarios-cliente");
         model.addObject("cliente", clienteService.buscarPorId(id));
         return model;
+    }*/
+    @GetMapping("/edit/{id}")
+    public ModelAndView buscarParaEditar(@PathVariable("id") Long id) {
+        var model = new ModelAndView();
+        model.setViewName("cadastro-usuarios-cliente");
+        model.addObject("cli", clienteService.buscarPorId(id));
+        return model;
     }
 
     // Processa atualização
-    @PostMapping("/edit/{id}")
+    /*@PostMapping("/edit/{id}")
     public String atualizarCliente(@PathVariable Long id, ClienteDTO clienteDTO, Model model) {
         try {
             clienteDTO.setId(id);
@@ -63,6 +80,17 @@ public class ClienteController {
             model.addAttribute("cliente", clienteDTO);
             return "cadastro-usuarios-cliente";
         }
+    }*/
+    @PostMapping("/edit/{id}")
+    public String atualizarCliente(@PathVariable Long id, ClienteDTO clienteDTO, Model model) {
+
+        Cliente original = clienteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+        
+        BeanUtils.copyProperties(clienteDTO, original, "id");
+        clienteRepository.save(original);
+
+        return "redirect:/clientes?sucesso";
     }
 
     // Deleta um cliente

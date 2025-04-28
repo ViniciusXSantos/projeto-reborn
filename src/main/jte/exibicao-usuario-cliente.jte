@@ -37,17 +37,21 @@
                                 <h2>Nome: ${dto.getNome()}</h2>
                                 <p>Email: ${dto.getEmail()}</p>
                                 <p>Telefone 1: ${dto.getTelefone1()} (${dto.getTipoTelefone1()})</p>
-                                <p>Telefone 1: ${dto.getTelefone2()} (${dto.getTipoTelefone2()})</p>
+                                <p>Telefone 2: ${dto.getTelefone2()} (${dto.getTipoTelefone2()})</p>
                             </div>
 
-                            <button class="botao-editar">
-                                <img src="/assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
-                                Editar
-                            </button>
-                            <button class="botao-deletar" onclick="confirmarDelecao(${dto.getId()})">
-                                <img src="/assets/icons/botao-deletar.svg" alt="Deletar" class="icone-botao">
-                                Deletar
-                            </button>
+                            <a class="ancora-add-butao" href="/clientes/edit/${dto.getId()}">
+                                <button class="botao-editar">
+                                    <img src="/assets/icons/botao-editar.svg" alt="Editar" class="icone-botao">
+                                    Editar
+                                </button>
+                            </a>
+                            <a class="ancora-add-butao" href="/clientes/remover/${dto.getId()}">
+                                <button class="botao-deletar" onclick="confirmarDelecao(${dto.getId()})">
+                                    <img src="/assets/icons/botao-deletar.svg" alt="Deletar" class="icone-botao">
+                                    Deletar
+                                </button>
+                            </a>
                         </div>
                     </article>
 

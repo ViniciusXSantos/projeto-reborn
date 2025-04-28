@@ -29,7 +29,7 @@ content = @`
                     <div class="caixa lado-a-lado">
                         <div class="caixa-input">
                             <div class="lado-mesclado">
-                                <input type="tel" name="telefone1" placeholder="Telefone *" class="telefone" required>
+                                <input type="tel" name="telefone1" placeholder="Telefone *" class="telefone" value="${cli.getTelefone1()}" required>
                                 <select name="tipoTelefone1" class="telefone-selecao" required>
                                     <option value="" disabled selected>Selecione...</option>
                                     <option value="Phone">Phone</option>
@@ -41,7 +41,7 @@ content = @`
 
                         <div class="caixa-input">
                             <div class="lado-mesclado">
-                                <input type="tel" name="telefone2" placeholder="Telefone" class="telefone">
+                                <input type="tel" name="telefone2" placeholder="Telefone" class="telefone" value="${cli.getTelefone2()}">
                                 <select name="tipoTelefone2" class="telefone-selecao">
                                     <option value="" disabled selected>Selecione...</option>
                                     <option value="Phone">Phone</option>
