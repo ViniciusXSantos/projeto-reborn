@@ -38,7 +38,7 @@ content = @`
                                     <i class='bx bxs-edit-alt' ></i>
                                     Editar
                                 </a>
-                                <a href="/clientes/remover/${dto.getId()}" class="botao-deletar" onclick="confirmarDelecao(${dto.getId()})">
+                                <a href="/clientes/delete/${dto.getId()}" class="botao-deletar"> <!-- onclick="confirmarDelecao(${dto.getId()})" -->
                                     <i class='bx bx-x'></i>
                                     Deletar
                                 </a>
