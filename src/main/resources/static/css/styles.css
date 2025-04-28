@@ -10,6 +10,8 @@
 * {
     box-sizing: border-box;
     font-family: 'Outfit', sans-serif !important;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -17,28 +19,41 @@ body {
     background-image: url("/assets/backgrounds/textura-de-plano-de-fundo.png");
 }
 
-header {
-    margin-bottom: 5%;
+/* Header */
+header { /* Largura total menos a largura da barra lateral */
     height: 8rem;
     background: var(--cor-primaria);
-    justify-items: center;
-    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Garante espaçamento entre os elementos */
+    padding: 0 2rem;
+    color: var(--cor-secundaria);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: 0;
+    left: 17em; /* Alinha o header ao lado da barra lateral */
+    transition: 0.3s ease-in-out;
 }
 
-header, .formulario-container {
-    width: 100%;
-}
-
+/* Fundo e Layout Principal */
 .fundo-conteudo {
     display: flex;
-    min-height: 100vh; /* Garante que o conteúdo ocupe toda a tela */
+    flex-wrap: wrap; /* Impede que os itens quebrem para uma nova linha */
+    min-height: calc(100vh - 8rem); /* Altura total menos o header */
+    padding: 2rem;
+    gap: 2rem; /* Espaçamento entre os itens */
+    margin-left: 17em; /* Espaçamento ao lado da barra lateral */
+    flex-direction: column;
+    align-content: space-around;
+    align-items: flex-start;
 }
 
+/* Menu Hambúrguer */
 .menu-hamburger {
     display: none;
     position: fixed;
-    top: 1%;
-    left: 0;
+    top: 1rem;
+    left: 1rem;
     background-color: var(--cor-terciaria);
     border: 1px solid var(--cor-secundaria);
     border-radius: 50%;
@@ -47,55 +62,48 @@ header, .formulario-container {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 3;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 25px 0 0 25px;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-hamburger.menu-active {
+    transition: 0.3s ease;
 }
 
 .menu-hamburger svg {
     color: var(--cor-primaria);
 }
 
+/* Barra Lateral */
 .barra-lateral {
-    width: 17em;
-    height: 100vh; /* Ocupa 100% da altura da tela */
+    width: 17em; /* Largura fixa para a barra lateral */
+    flex-shrink: 0; /* Impede que a barra lateral encolha */
     background: var(--cor-terciaria);
     box-shadow: 4px 0 10px rgba(122, 122, 122, 0.25);
     display: flex;
-    flex-direction: column; /* Mantém os itens alinhados verticalmente */
-    position: sticky;
-    top: 0px;
-}
-
-.logo img {
-    width: 100%;
+    flex-direction: column;
+    position: fixed; /* Fixa a barra lateral no lado esquerdo */
+    top: 0;
+    left: 0;
+    height: 100%; /* Ocupa toda a altura da página */
+    z-index: 2;
+    padding: 2rem 1rem;
     transition: transform 0.3s ease-in-out;
-    transform: scale(1.2);
 }
 
-    .aviator{
-        position: absolute;
-        top: 20%;
-        width: calc(100% - 250px); /* Ajuste para a largura da barra lateral */
-        height: 80%;
-        background-size: cover;
-        background-position: center center;
-        z-index: -10000;
-    }
-
-.logo img:hover {
-    transform: scale(1.5); /* Aumenta 20% ao passar o mouse */
+.barra-lateral nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
-nav ul {
-    padding: 0 1em;
-    flex-grow: 1; /* Faz a navegação ocupar o espaço disponível */
+.barra-lateral nav ul li {
+    margin-bottom: 1rem;
 }
 
-nav ul li {
-    margin-bottom: 10%;
-}
-
-nav ul li a {
+.barra-lateral nav ul li a {
     width: 100%;
     padding: 10px 15px;
     border-radius: 10px;
@@ -112,33 +120,59 @@ nav ul li a {
     background-color: var(--cor-quaternaria);
 }
 
-.conteudo {
+/* Logo */
+.logo img {
     width: 100%;
-    display: block;
-    /*justify-items: center;*/
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.2);
 }
 
-.caixa-cabecalho {
-    width: 80%;
+.logo img:hover {
+    transform: scale(1.5);
+}
+
+/* Conteúdo Principal */
+.conteudo {
+    flex: 1; /* Faz o conteúdo ocupar o espaço restante */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--cor-secundaria);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 2rem; /* Espaçamento da barra lateral */
+    margin-top: 2rem; /* Espaçamento do topo */
+}
+
+/* Caixa Cabeçalho */
+.caixa-cabecalho {
+    width: 60%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
     color: var(--cor-terciaria);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: -17em;
 }
 
 h1 {
     font-size: 1.7em;
-    align-content: center;
 }
 
+/* Info Usuário */
 .info-usuario {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly; /* Alinha os elementos à direita */
     align-items: center;
     gap: 1em;
+    margin-left: auto; /* Empurra o bloco para a direita */
 }
 
 .info-usuario img {
-    padding: .2em;
+    padding: 0.2em;
     width: 2.5em;
     height: auto;
     border-radius: 50%;
@@ -146,48 +180,103 @@ h1 {
 }
 
 .detalhes-usuario {
-    min-width: 129px;
+    min-width: 50px;
+    text-align: right; /* Alinha o texto à direita */
 }
 
+/* Formulário */
 .formulario-container {
     width: 80%;
-    /*height: 100%;*/
 }
 
+/* Botão de Adicionar */
 .ancora-add-butao {
-    text-decoration: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 540px) {
-    /* Exibir o botão do menu hambúrguer */
+.ancora-add-butao:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+/* Imagem Aviator Responsiva */
+.aviator {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 0;
+}
+
+.aviator img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .barra-lateral {
+        width: 17em; /* Mantém a largura fixa mesmo em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        width: 100%; /* O header ocupa toda a largura */
+        left: 0; /* Remove o deslocamento da barra lateral */
+    }
+
     .menu-hamburger {
         display: flex;
     }
 
-    /* Menu lateral escondido por padrão */
     .barra-lateral {
-        transform: translateX(-100%);
         position: fixed;
-        top: 0;
-        left: 0;
+        transform: translateX(-100%);
         height: 100%;
-        width: 100%;
-        background: var(--cor-terciaria);
-        /*box-shadow: 4px 0 10px rgba(122, 122, 122, 0.25);*/
         box-shadow: none;
-        display: flex;
-        flex-direction: column;
-        z-index: 1000;
         transition: transform 0.3s ease-in-out;
     }
 
-    /* Exibir o menu quando ativo */
     .barra-lateral.active {
-        transform: translateX(0);
+        transform: translateX(0); /* Mostra a barra lateral ao ativar o menu hambúrguer */
     }
 
-    /* Ocultar detalhes do usuário */
-    .detalhes-usuario {
-        display: none;
+    .conteudo {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem; /* Espaçamento abaixo do header */
+    }
+
+    .fundo-conteudo {
+        margin-left: 0;
+    }
+
+    .caixa-cabecalho {  
+        margin-left: 0;
+    }
+
+    .logo {
+        padding-top: 70px;
+    }
+
+    .aviator {
+        width: 120%; /* Aumenta a largura */
+        height: auto; /* Mantém a proporção */
+        margin-top: 2rem; /* Ajusta o espaçamento */
     }
 }

@@ -25,7 +25,7 @@
                 <input type="password" name="password" placeholder="Senha" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
-            <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn">Login</button>
         </form>
         @if(error != null)
             <div class="error-message">Email ou senha incorretos</div>

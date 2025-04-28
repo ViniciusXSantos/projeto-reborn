@@ -26,14 +26,6 @@ select {
     gap: 2rem;
 }
 
-.menu-hamburger {
-    display: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    margin: 10px;
-    color: var(--color-second);
-}
 
 /* Upload de Foto */
 .upload-de-foto {
