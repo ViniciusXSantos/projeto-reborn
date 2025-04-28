@@ -35,12 +35,14 @@
                         <button class="botao-editar">
                             
                             <i class='bx bxs-edit-alt' style="color: var(--light);"></i>
+                            Editar
                         </button>
                     </a>
                     <a href="/pacotes/remover/${dto.getIdPacote()}">
                         <button class="botao-deletar">
                            
                             <i class='bx bx-x' style="color: var(--light);"></i>
+                            Deletar
                         </button>
                     </a>
                     <!--

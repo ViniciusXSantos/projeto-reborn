@@ -14,8 +14,9 @@
     max-width: 1200px;
 }
 
-.card {
-    background: var(--light);
+.card, 
+.card-home {
+    background: var(--very-light);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -24,26 +25,26 @@
     margin-bottom: 10px;
 }
 
-.card:hover {
+.card, .card-home:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.card i {
+.card, .card-home i {
     font-size: 3rem;
     color: var(--blue);
     margin-bottom: 10px;
 }
 
-.card h3 {
+.card, .card-home h3 {
     font-size: 1.5rem;
     color: var(--dark);
     margin-bottom: 10px;
 }
 
-.card p {
+.card, .card-home p {
     font-size: 1rem;
-    color: var(--dark-grey);
+    
 }
 
 .logo-container {
