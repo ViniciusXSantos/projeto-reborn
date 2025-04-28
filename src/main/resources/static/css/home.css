@@ -21,7 +21,6 @@
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 20px;
 }
 
 .card:hover {
@@ -52,6 +51,6 @@
 }
 
 .logo-container img {
-    max-width: 550px; /* Ajuste o tamanho da logo conforme necessário */
+    max-width: 300px; /* Ajuste o tamanho da logo conforme necessário */
     height: auto;
 }
