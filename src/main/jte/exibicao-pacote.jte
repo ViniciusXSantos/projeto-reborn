@@ -7,6 +7,7 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Pacote"),
     content = @`
+
 <section class="secao-pesquisa">
     <a href="/pacotes/novo" class="btn-cadastro">
                 <i class='bx bx-plus'></i>
@@ -33,21 +34,23 @@
                     <a href="/pacotes/edit/${dto.getIdPacote()}">
                         <button class="botao-editar">
                             
-                            <i class='bx bxs-edit-alt' ></i>
+                            <i class='bx bxs-edit-alt' style="color: var(--light);"></i>
                         </button>
                     </a>
                     <a href="/pacotes/remover/${dto.getIdPacote()}">
                         <button class="botao-deletar">
                            
-                            <i class='bx bx-x' ></i>
+                            <i class='bx bx-x' style="color: var(--light);"></i>
                         </button>
                     </a>
+                    <!--
                     <a href="#">
                         <button class="botao-ativo">
                             <img src="/assets/icons/botao-ativo.svg" alt="Ativo" class="icone-botao">
                             Habilitar
                         </button>
                     </a>
+                    -->
                 </div>
             </article>
         @endfor
