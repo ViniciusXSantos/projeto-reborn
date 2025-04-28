@@ -34,6 +34,10 @@ public class PacoteServiceImpl implements PacoteService {
 
     @Override
     public void salvar(PacoteDTO pacoteDTO) {
+        /*
+        if (pacoteDTO.getDataChegada().isBefore(pacoteDTO.getDataPartida())) {
+            throw new RuntimeException("A data de chegada deve ser depois da data de partida.");
+        }*/
         Pacote pacote = pacoteDTO.toEntity();
         pacoteRepository.save(pacote);
     }

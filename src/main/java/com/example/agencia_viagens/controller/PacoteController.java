@@ -1,5 +1,6 @@
 package com.example.agencia_viagens.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -74,7 +75,18 @@ public class PacoteController {
     public String atualizarCliente(@PathVariable Long id, PacoteDTO pacoteDTO, Model model) {
         Pacote original = pacoteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pacote não encontrado"));
-        BeanUtils.copyProperties(pacoteDTO, original, "idPacote");
+        
+        // Copia os campos compatíveis
+        BeanUtils.copyProperties(pacoteDTO, original, "idPacote", "dataPartida", "dataChegada");
+
+        // Converte e seta manualmente as datas
+        if (pacoteDTO.getDataPartida() != null && !pacoteDTO.getDataPartida().isEmpty()) {
+            original.setDataPartida(LocalDate.parse(pacoteDTO.getDataPartida()));
+        }
+        if (pacoteDTO.getDataChegada() != null && !pacoteDTO.getDataChegada().isEmpty()) {
+            original.setDataChegada(LocalDate.parse(pacoteDTO.getDataChegada()));
+        }
+
         pacoteRepository.save(original);
         return "redirect:/pacotes?sucesso";
     }

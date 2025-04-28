@@ -36,10 +36,10 @@ content = @`
                             <input type="text" placeholder="Descrição *" name="descricao" value="${pacotes.getDescricao()}" required>
                         </div>
                         <div class="caixa-input">
-                            <input type="text" data-type="date" placeholder="Data de Partida *" name="dataPartida" value="${pacotes.getDataPartida()}" required>
+                            <input type="date" data-type="date" placeholder="Data de Partida *" name="dataPartida" value="${pacotes.getDataPartida()}" required>
                         </div>
                         <div class="caixa-input">
-                            <input type="text" data-type="date" placeholder="Data de Chegada *" name="dataChegada" value="${pacotes.getDataChegada()}" required>
+                            <input type="date" data-type="date" placeholder="Data de Chegada *" name="dataChegada" value="${pacotes.getDataChegada()}" required>
                         </div>
                     </div>
                 </fieldset>
