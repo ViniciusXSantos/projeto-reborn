@@ -15,7 +15,5 @@ public interface PacoteService {
 
     public Object buscarPorId(Long id);
 
-    PacoteDTO findOne(Long id);
-
     public void remove(Long id);
 }

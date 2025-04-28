@@ -21,27 +21,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PacoteServiceImpl implements PacoteService {
 
-    // private final PacoteRepository pacoteRepository;
     private final PacoteRepository pacoteRepository;
-   //  private final PacoteMapper pacoteMapper;
 
     @Override
     public List<PacoteDTO> buscarTodos() {
         List<Pacote> pacotes = pacoteRepository.findAll();
-    
         List<PacoteDTO> pacoteDtos = pacotes.stream()
             .map(PacoteMapper::toDto)
             .collect(Collectors.toList());
-    
         return pacoteDtos;
     }
 
     @Override
     public void salvar(PacoteDTO pacoteDTO) {
-
         Pacote pacote = pacoteDTO.toEntity();
         pacoteRepository.save(pacote);
- 
     }
 
     @Override
@@ -49,12 +43,6 @@ public class PacoteServiceImpl implements PacoteService {
         Pacote pacote = pacoteRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Pacote não encontrado"));
         return PacoteMapper.toDto(pacote);
-    }
-
-    @Override
-    public PacoteDTO findOne(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findOne'");
     }
 
     @Override

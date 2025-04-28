@@ -54,12 +54,6 @@ public class ClienteController {
     }
 
     // Exibe formulário de edição
-    /*@GetMapping("/edit/{id}")
-    public ModelAndView editarCliente(@PathVariable Long id) {
-        ModelAndView model = new ModelAndView("cadastro-usuarios-cliente");
-        model.addObject("cliente", clienteService.buscarPorId(id));
-        return model;
-    }*/
     @GetMapping("/edit/{id}")
     public ModelAndView buscarParaEditar(@PathVariable("id") Long id) {
         var model = new ModelAndView();
@@ -69,27 +63,12 @@ public class ClienteController {
     }
 
     // Processa atualização
-    /*@PostMapping("/edit/{id}")
-    public String atualizarCliente(@PathVariable Long id, ClienteDTO clienteDTO, Model model) {
-        try {
-            clienteDTO.setId(id);
-            clienteService.salvar(clienteDTO);
-            return "redirect:/clientes?sucesso";
-        } catch (RuntimeException e) {
-            model.addAttribute("erro", e.getMessage());
-            model.addAttribute("cliente", clienteDTO);
-            return "cadastro-usuarios-cliente";
-        }
-    }*/
     @PostMapping("/edit/{id}")
     public String atualizarCliente(@PathVariable Long id, ClienteDTO clienteDTO, Model model) {
-
         Cliente original = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-        
         BeanUtils.copyProperties(clienteDTO, original, "id");
         clienteRepository.save(original);
-
         return "redirect:/clientes?sucesso";
     }
 

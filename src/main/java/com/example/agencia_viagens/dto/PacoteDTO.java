@@ -48,15 +48,15 @@ public class PacoteDTO {
         String valor
     ) {
         this.idPacote = idPacote;
-        this.titulo =titulo;
-        this.descricao =descricao;
-        this.dataPartida=dataPartida;
-        this.dataChegada=dataChegada;
-        this.estado=estado;
-        this.hospedagem=hospedagem;
-        this.passeios=passeios;
-        this.translado=translado;
-        this.valor=valor;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataPartida = dataPartida;
+        this.dataChegada = dataChegada;
+        this.estado = estado;
+        this.hospedagem = hospedagem;
+        this.passeios = passeios;
+        this.translado = translado;
+        this.valor = valor;
     }   
     
     public Pacote toEntity() {

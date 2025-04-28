@@ -72,13 +72,10 @@ public class PacoteController {
     // Processa atualização
     @PostMapping("/edit/{id}")
     public String atualizarCliente(@PathVariable Long id, PacoteDTO pacoteDTO, Model model) {
-
         Pacote original = pacoteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pacote não encontrado"));
-        
         BeanUtils.copyProperties(pacoteDTO, original, "idPacote");
         pacoteRepository.save(original);
-
         return "redirect:/pacotes?sucesso";
     }
 
