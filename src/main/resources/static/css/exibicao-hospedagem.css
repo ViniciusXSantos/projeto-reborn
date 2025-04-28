@@ -115,3 +115,9 @@
 .btn-deletar:hover {
     background: var(--orange);
 }
+
+@media(max-width:768px) {
+    .cartoes-hospedagem {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
