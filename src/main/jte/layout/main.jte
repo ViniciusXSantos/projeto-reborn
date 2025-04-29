@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/cadastro-pacote.css">
     <link rel="stylesheet" href="/css/exibicao-hospedagem.css">
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/gerenciamento-usuario.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="/js/dashboard.js" defer></script>
     <script src="/js/telefone-formatacao.js" defer></script>

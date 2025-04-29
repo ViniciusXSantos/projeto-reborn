@@ -18,10 +18,11 @@ li {
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;
 
-    --light: #f8fbff;
+    --very-light: #f8f9fa;
+    --light: #fcfdfe;
     --blue: #405394;
     --light-blue: #87A2FF;
-    --grey: #e7effb;
+    --grey: #f0f5fc;
     --dark-grey: #878686;
     --dark: #424242;
     --red: #e94e1b;
@@ -32,7 +33,7 @@ li {
     --gradiente-bg: linear-gradient(90deg, #f38865 0%, #9cb3ff 100%);
 }
 
-html{
+html {
     overflow-x: hidden;
 }
 
@@ -71,7 +72,7 @@ body {
     position: sticky;
     top: 0;
     left: 0;
-    background:url(/assets/svg/logo-innova.svg) no-repeat center;
+    background: url(/assets/svg/logo-innova.svg) no-repeat center;
     background-size: 100%;
     background-position: cover;
     z-index: 500;
@@ -349,7 +350,7 @@ body {
     color: var(--dark);
 }
 
-#content .main .head-title .left .breadcrumb{
+#content .main .head-title .left .breadcrumb {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -389,7 +390,7 @@ body {
     margin-top: 36px;
 }
 
-#content .main .box-info .li{
+#content .main .box-info .li {
     padding: 24px;
     background: var(--light);
     border-radius: 20px;
@@ -409,22 +410,22 @@ body {
     align-items: center;
 }
 
-#content .main .box-info .li:nth-child(1) .bx{
+#content .main .box-info .li:nth-child(1) .bx {
     background: var(--light-blue);
     color: var(--blue);
 }
 
-#content .main .box-info .li:nth-child(2) .bx{
+#content .main .box-info .li:nth-child(2) .bx {
     background: var(--light-yellow);
     color: var(--yellow);
 }
 
-#content .main .box-info .li:nth-child(3) .bx{
+#content .main .box-info .li:nth-child(3) .bx {
     background: var(--light-orange);
     color: var(--orange);
 }
 
-#content .main .box-info .li .texto .h3{
+#content .main .box-info .li .texto .h3 {
     font-size: 24px;
     font-weight: 600;
     color: var(--dark);
@@ -439,7 +440,7 @@ body {
     #barra-lateral {
         width: 200px;
     }
-    
+
     #content {
         /*width: calc(100% - 60px);*/
         width: calc(100% - 200px);
@@ -485,7 +486,20 @@ body {
         display: none;
     }
 
-    /* #content .main .box-info {
-        grid-template-columns: 1fr;
-    } */
+
+    .botoes {
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .btn-editar,
+    .btn-deletar {
+        padding: 10px 10px;
+        border-radius: 8px;
+    }
+
+    #content {
+        width: calc(100% - 60px);
+    }
+
 }

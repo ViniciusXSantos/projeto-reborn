@@ -7,7 +7,7 @@
 @template.layout.main(
     page = new Page("Gerenciamento de Funcionário"),
     content = @`
-    <link rel="stylesheet" href="/css/gerenciamento-usuario.css">
+    
 
     <div class="formulario-container">
         <!-- Barra de Pesquisa e Botão Adicionar -->

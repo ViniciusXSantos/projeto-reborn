@@ -121,3 +121,15 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
+
+@media screen and (max-width: 540px){
+    .botoes{
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .btn-editar, .btn-deletar {
+        padding: 10px 10px;
+        border-radius: 8px;
+    }
+}
